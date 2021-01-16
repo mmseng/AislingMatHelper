@@ -31,7 +31,8 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 1. Open the Power Contact menu
 2. Make sure the top button is selected ("FULL SYSTEM STATISTICS")
 3. Make sure your mouse cursor is away from any buttons, as it can interfere
-4. Press your configured hotkey
+4. Press your configured hotkey for the desired action
+5. Don't touch anything while the script takes control of your inputs
 
 # Important variables
 Make sure to configure these three variables, or the script won't behave as expected.  
