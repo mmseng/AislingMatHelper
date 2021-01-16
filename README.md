@@ -8,7 +8,7 @@ Specifically, this was designed for players pledged to the Aisling Duval power, 
 # Pre-requisites
 - Windows
 - PC version of Elite Dangerous
-- [https://www.autohotkey.com](Autohotkey) v1.1.31.00 or newer installed
+- [Autohotkey](https://www.autohotkey.com) v1.1.31.00 or newer installed
 
 # Usage
 
