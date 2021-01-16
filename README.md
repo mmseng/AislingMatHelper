@@ -28,7 +28,7 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 5. You may wish to create multiple copies of the script with different variable values for different purposes
 
 ### Use in game
-1. Open the Power Contact menu
+1. Dock at a station and open the Power Contact menu
 2. Make sure the top button is selected ("FULL SYSTEM STATISTICS")
 3. Make sure your mouse cursor is away from any buttons, as it can interfere
 4. Press your configured hotkey for the desired action
