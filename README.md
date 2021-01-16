@@ -109,6 +109,6 @@ The delay depends on your `CargoCapacity`.
 Testing shows that an acceptable value is something around 50ms per ton delivered.  
 
 # Notes
-- Script concept originally by CMDR Suladir
+- [Original script](https://pastebin.com/9MFvm8ek) by CMDR Suladir
 - Overhauled for ease of use and flexibility by CMDR Roachy1
 - For the Princess!
