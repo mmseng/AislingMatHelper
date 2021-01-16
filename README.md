@@ -81,32 +81,53 @@ Kills the script.
 Useful if things go wrong, like if you click outside the game window while the script is working, or the timings are off and the autoclicks are out of sync with the menu state.  
 Default is `F4`.  
 
+# Menu Navigation Variables
+These are the keystrokes used by the script to navigate through menu options.  
+If you use custom keybinds for this in Elite Dangerous, edit these accordingly.  
+Note: it's recommended to use lowercase letters to avoid conflicts with Shift keys.  
+
+### KeyDown
+The keystroke used to navigate down in menus.  
+Default is `s`.  
+
+### KeyRight
+The keystroke used to navigate right in menus.  
+Default is `d`.  
+
+### KeySelect
+The keystroke used to select/click options/buttons.  
+Default is 'Space'.  
+
 # Timing Variables
 Only configure these if the script is not working as expected.  
 All timings are in milliseconds (ms).  
 
 ### DelayFasttrack
 The delay after clicking the "FAST TRACK NEXT QUOTA" button.  
+Default is `500`.  
 Needed because the UI pauses briefly after clicking this, before allowing you to load materials.  
 This delay (and the button click) happen regardless of whether you actually need to click the button or not, because it doesn't hurt anything.  
 
 ### DelayConfirm
 The delay after clicking the "CONFIRM" button after loading materials.  
+Default is `700`.  
 Needed because the UI pauses briefly before continuing to the confirmation screen.  
 
 ### DelayLoop
 The delay after clicking the "CONFIRM" button on the confirmation screen.  
+Default is `200`.  
 Needed because the UI pauses briefly before returning to the Power Contact screen.  
 Only applies to the `BuyAllQuotas` action.  
 
 ### DelayLoad
 The delay after pressing the "right" key before releasing it, when loading materials. 
 The delay depends on the quota size, which depends on your `Rating`.  
+Testing shows that an acceptable value is something around 60ms per ton loaded, conservatively.  
 
 ### DelayDeliver
 The delay after pressing the "right" key before releasing it, when delivering materials.  
 The delay depends on your `CargoCapacity`.  
-Testing shows that an acceptable value is something around 50ms per ton delivered.  
+Testing shows that an acceptable value is something around 60ms per ton delivered, conservatively.  
 
 # Notes
 - [Original script](https://pastebin.com/9MFvm8ek) by CMDR Suladir

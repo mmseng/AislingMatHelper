@@ -1,14 +1,15 @@
+; ===========================================================
+; Script execution behavior
+; You can ignore this first section
+; ===========================================================
 ; Recommended for performance and compatibility with future AutoHotkey releases
 #NoEnv
-
-; Ensures a consistent starting directory
-SetWorkingDir %A_ScriptDir%
-
-; Delay between each command. Increase if operations are skipped
-SetKeyDelay, 50, 50
-
 ; Force one instance of script
 #SingleInstance Force
+; Ensures a consistent starting directory
+SetWorkingDir %A_ScriptDir%
+; Delay between each command. Increase if operations are skipped
+SetKeyDelay, 50, 50
 
 
 
@@ -41,8 +42,8 @@ Deliver = F3 ; Deliver all materials
 Kill = F4 ; Kill script (useful if things go wrong)
 
 ; Menu navigation keys
-KeyDown = S
-KeyRight = D
+KeyDown = s
+KeyRight = d
 KeySelect = Space
 
 
@@ -63,30 +64,23 @@ DelayLoop = 200
 
 ; Delay when loading
 ; Defines how long to hold "right" when loading mats
-; Also defines how big your rating's quota is (in tons)
+; Based on your quota size (in tons)
+; ~70ms per ton to be safe
+; This switch statement is what requires v1.1.31.00 or later, as it didn't exist before that. If for some bizarre reason you need to use an older version, you could replace this with several if statements.
 switch Rating {
-	case 1:
-		DelayLoad = 700
-		Quota = 10
-	case 2:
-		DelayLoad = 1000
-		Quota = 15
-	case 3:
-		DelayLoad = 1200
-		Quota = 20
-	case 4:
-		DelayLoad = 1500
-		Quota = 25
-	case 5:
-		DelayLoad = 3000
-		Quota = 50
+	case 1: Quota = 10
+	case 2: Quota = 15
+	case 3: Quota = 20
+	case 4: Quota = 25
+	case 5: Quota = 50
 }
+DelayLoad := Quota * 70
 
 ; Delay when delivering
 ; Defines how long to hold "right" when delivering mats
 ; Based on cargo capacity
-; ~50ms per ton
-DelayDeliver := CargoCapacity * 50
+; ~60ms per ton to be safe
+DelayDeliver := CargoCapacity * 60
 
 
 
