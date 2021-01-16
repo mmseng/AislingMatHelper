@@ -3,7 +3,7 @@ This is an Autohotkey script which helps to automate tedious keystrokes in Elite
 
 Specifically, this was designed for players pledged to the Aisling Duval power, to automate the keystrokes required to purchase and load preparation and fortification materials, and deliver these materials.  
 
-This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CMDR Sulandir. This updated script features complete modularization of all hard-coded aspects into easy-to-use variables, full documentation (below), and fully commented code.  
+This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CMDR Oraki/Sulandir. This updated script features complete modularization of all hard-coded aspects into easy-to-use variables, full documentation (below), and fully commented code.  
 
 <p align='center'>
 	<img src='aisling.png' /><br />
@@ -138,6 +138,6 @@ The delay depends on your `CargoCapacity`.
 Testing shows that an acceptable value is something around 60ms per ton delivered, conservatively.  
 
 # Notes
-- [Original script](https://pastebin.com/9MFvm8ek) by CMDR Sulandir
+- [Original script](https://pastebin.com/9MFvm8ek) by CMDR Oraki/Sulandir
 - Overhauled for ease of use and flexibility by CMDR Roachy1
 - For the Princess!
