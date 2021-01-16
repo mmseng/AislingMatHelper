@@ -63,11 +63,11 @@ See these docs for the syntax for other keys and modifiers (like Ctrl):
 Buys one full quota of the configured material.  
 Default is `F1`.  
 
-
 ### BuyAllQuotas
 Buys as many quotas as you can hold.  
 Depends on the value of `CargoCapacity` and the size of your quota based on your `Rating`.  
 Default is `F2`.  
+e.g. If your `CargoCapacity` is 700, and your `Rating` is 5, then this will buy 700/50 = 14 full quotas.  
 
 ### Deliver
 Delivers as many tons as you can hold.  
@@ -78,6 +78,33 @@ Default is `F3`.
 Kills the script.  
 Useful if things go wrong, like if you click outside the game window while the script is working, or the timings are off and the autoclicks are out of sync with the menu state.  
 Default is `F4`.  
+
+# Timing Variables
+Only configure these if the script is not working as expected.  
+All timings are in milliseconds (ms).  
+
+### DelayFasttrack
+The delay after clicking the "FAST TRACK NEXT QUOTA" button.  
+Needed because the UI pauses briefly after clicking this, before allowing you to load materials.  
+This delay (and the button click) happen regardless of whether you actually need to click the button or not, because it doesn't hurt anything.  
+
+### DelayConfirm
+The delay after clicking the "CONFIRM" button after loading materials.  
+Needed because the UI pauses briefly before showing you the confirmation screen.  
+
+### DelayLoop
+The delay after clicking the "CONFIRM" button on the confirmation screen.  
+Needed because the UI pauses briefly before bringing you back to the Power Contact screen.  
+Only applies to the `BuyAllQuotas` action.  
+
+### DelayLoad
+The delay after pressing the "right" key before releasing it, when loading materials. 
+The delay depends on the quota size, which depends on your `Rating`.  
+
+### DelayDeliver
+The delay after pressing the "right" key before releasing it, when delivering materials.  
+The delay depends on your `CargoCapacity`.  
+Testing shows that an acceptable value is something around 50ms per ton delivered.  
 
 # Notes
 - Script concept originally by CMDR Suladir
