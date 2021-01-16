@@ -15,6 +15,8 @@ SetKeyDelay, 50, 50
 ; ===========================================================
 ; Information
 ; ===========================================================
+; See full script documentation at: https://github.com/mmseng/AislingMatHelper
+
 ; This script is intended to be used with Elite Dangerous, to help those pledged to Aisling Duval buy and deliver fortification and preparation materials.
 ; Define variables below per your preferences and use the configured hotkeys to purchase/unload full quotas of fortification or preparation materials.
 ; You must enter the Power Contact screen and highlight the "FULL SYSTEM STATISTICS" option at the top, then press the desired hotkey.
@@ -164,8 +166,8 @@ JumpBuyAll:
 	; Calculate number of loops needed to fill cargo, rounded up
 	; e.g. 700t / Rating 5 quota (50t) = 14 loops
 	; e.g. 701t / Rating 5 quota (50t) = 15 loops
-	Loops = Ceil(CargoCapacity / Quota)
-
+	Loops := Ceil(CargoCapacity / Quota)
+	
 	; Loop
 	Loop, %Loops% {
 		; Move down to desired material
@@ -192,6 +194,7 @@ JumpBuyAll:
 		; Loop delay
 		sleep, %DelayLoop%
 	}
+	
 	Return
 
 ; --------------------------------------
@@ -218,4 +221,12 @@ JumpDeliver:
 
 ; Quick exit option if something goes horribly wrong.
 JumpKill:
+	
+	; In case the script was killed while a key was virtually depressed
+	send, {S up}
+	send, {D up}
+	send, {Space up}
+	
 	ExitApp
+
+; EOF

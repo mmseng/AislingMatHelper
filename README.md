@@ -17,7 +17,7 @@ Specifically, this was designed for players pledged to the Aisling Duval power, 
 2. Open it using a text editor
 3. Configure the variables near the top, based on the documentation below
 4. Run the script
-5. In game
+5. You may want to create multiple copies of the script with different variable values for different purposes
 
 # Use in game
 1. Open the Power Contact menu
@@ -32,3 +32,11 @@ Specifically, this was designed for players pledged to the Aisling Duval power, 
 ### CargoCapacity
 
 ### MaterialType
+
+### BuyOne
+
+### BuyAll
+
+### Deliver
+
+### Kill
