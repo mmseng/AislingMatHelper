@@ -7,7 +7,8 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 
 <p align='center'>
 	<img src='aisling.png' /><br />
-	o7 == CMDR Roachy1
+	o7<br />
+	== CMDR Roachy1
 </p>
 
 
