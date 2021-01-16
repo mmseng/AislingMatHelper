@@ -100,7 +100,7 @@ Needed because the UI pauses briefly before returning to the Power Contact scree
 Only applies to the `BuyAllQuotas` action.  
 
 ### DelayLoad
-The delay after pressing the "right" key before releasing it, when loading materials. 
+The delay after pressing the "right" key before releasing it, when loading materials.  
 The delay depends on the quota size, which depends on your `Rating`.  
 
 ### DelayDeliver
