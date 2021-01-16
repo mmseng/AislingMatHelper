@@ -120,7 +120,7 @@ Needed because the UI pauses briefly before returning to the Power Contact scree
 Only applies to the `BuyAllQuotas` action.  
 
 ### DelayLoad
-The delay after pressing the "right" key before releasing it, when loading materials. 
+The delay after pressing the "right" key before releasing it, when loading materials.  
 The delay depends on the quota size, which depends on your `Rating`.  
 Testing shows that an acceptable value is something around 60ms per ton loaded, conservatively.  
 
@@ -130,6 +130,6 @@ The delay depends on your `CargoCapacity`.
 Testing shows that an acceptable value is something around 60ms per ton delivered, conservatively.  
 
 # Notes
-- [Original script](https://pastebin.com/9MFvm8ek) by CMDR Suladir
+- [Original script](https://pastebin.com/9MFvm8ek) by CMDR Sulandir
 - Overhauled for ease of use and flexibility by CMDR Roachy1
 - For the Princess!
