@@ -55,13 +55,14 @@ Rating 3: 20t
 Rating 4: 25t  
 Rating 5: 50t  
 
-For example if your rating is 5, and you have 704 cargo capacity, set this to 700. Otherwise the script will buy another 50, but you'll only have room for 4 more.  
+For example if your rating is 5, and you have 704 cargo capacity, set this to 700. Otherwise the script will buy another 50, but you'll only have room to load 4 more.  
 
 ### MaterialType
 Defines which material type to buy.  
 `1` = preperation materials (media materials).  
 `2` = fortification materials (programme materials).  
 Default is `2`.  
+Theoretically `3` could work for expansion materials (sealed contracts), but this is untested.  
 
 # Hotkey variables
 These variables define which hotkeys do what.  
