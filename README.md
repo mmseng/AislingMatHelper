@@ -3,7 +3,7 @@ This is an Autohotkey script which helps to automate tedious keystrokes in Elite
 
 Specifically, this was designed for players pledged to the Aisling Duval power, to automate the keystrokes required to purchase and load preparation and fortification materials, and deliver these materials.  
 
-<img src='aisling.png' align='center' />
+<div style="text-align:center"><img src='aisling.png' /></div>
 
 # Pre-requisites
 - Windows
