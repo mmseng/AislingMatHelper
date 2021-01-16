@@ -79,8 +79,8 @@ DelayLoad := Quota * 70
 ; Delay when delivering
 ; Defines how long to hold "right" when delivering mats
 ; Based on cargo capacity
-; ~60ms per ton to be safe
-DelayDeliver := CargoCapacity * 60
+; ~55ms per ton to be safe
+DelayDeliver := CargoCapacity * 55
 
 
 
