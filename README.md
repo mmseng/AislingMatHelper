@@ -90,11 +90,11 @@ This delay (and the button click) happen regardless of whether you actually need
 
 ### DelayConfirm
 The delay after clicking the "CONFIRM" button after loading materials.  
-Needed because the UI pauses briefly before showing you the confirmation screen.  
+Needed because the UI pauses briefly before continuing to the confirmation screen.  
 
 ### DelayLoop
 The delay after clicking the "CONFIRM" button on the confirmation screen.  
-Needed because the UI pauses briefly before bringing you back to the Power Contact screen.  
+Needed because the UI pauses briefly before returning to the Power Contact screen.  
 Only applies to the `BuyAllQuotas` action.  
 
 ### DelayLoad
