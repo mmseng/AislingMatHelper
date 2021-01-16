@@ -17,7 +17,7 @@ Specifically, this was designed for players pledged to the Aisling Duval power, 
 4. Run the script
 5. You may want to create multiple copies of the script with different variable values for different purposes
 
-# Use in game
+### Use in game
 1. Open the Power Contact menu
 2. Make sure the top button is selected ("FULL SYSTEM STATISTICS")
 3. Make sure your mouse cursor is away from any buttons, as it can interfere
