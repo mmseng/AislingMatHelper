@@ -1,11 +1,9 @@
 # Summary
-
 This is an Autohotkey script which helps to automate tedious keystrokes in Elite Dangerous.  
 
-Specifically, this was designed for players pledged to the Aisling Duval power, to purchase and load preparation and fortification materials, and deliver these materials.  
+Specifically, this was designed for players pledged to the Aisling Duval power, to automate the keystrokes required to purchase and load preparation and fortification materials, and deliver these materials.  
 
 # Pre-requisites
-
 - Windows
 - PC version of Elite Dangerous
 - [https://www.autohotkey.com](Autohotkey) v1.1.31.00 or newer installed
@@ -25,18 +23,63 @@ Specifically, this was designed for players pledged to the Aisling Duval power, 
 3. Make sure your mouse cursor is away from any buttons, as it can interfere
 4. Press your configured hotkey
 
-# Variables
+# Important variables
+Make sure to configure these three variables, or the script won't behave as expected.  
 
 ### Rating
+Set this to your current pledge rating.  
+Should be `1`, `2`, `3`, `4`, or `5`.  
+Default is `5`.  
+Dictates the size of your quotas (how many tons you're allowed to buy at once), which dictates how long the script needs to hold "right" to buy a full quota.
 
 ### CargoCapacity
+Set this to the number of tons you want to buy and deliver.  
+Default is `700`.  
+This dictates how many full quotas the script will buy.  
+It's highly recommended to make this a multiple of your rating's quota amount, or you may spend more credits than you need to.  
+
+Quota amounts are as follows:  
+Rating 1: 10t  
+Rating 2: 15t  
+Rating 3: 20t  
+Rating 4: 25t  
+Rating 5: 50t  
+
+For example if your rating is 5, and you have 704 cargo capacity, set this to 700. Otherwise the script will buy another 50, but you'll only have room for 4 more.  
 
 ### MaterialType
+Defines which material type to buy.  
+`1` = preperation materials (media materials).  
+`2` = fortification materials (programme materials).  
+Default is `2`.  
 
-### BuyOne
+# Hotkey variables
+These variables define which hotkeys do what.  
+See these docs for the syntax for other keys and modifiers (like Ctrl):  
+- https://www.autohotkey.com/docs/Hotkeys.htm
+- https://www.autohotkey.com/docs/KeyList.htm
 
-### BuyAll
+### BuyOneQuota
+Buys one full quota of the configured material.  
+Default is `F1`.  
+
+
+### BuyAllQuotas
+Buys as many quotas as you can hold.  
+Depends on the value of `CargoCapacity` and the size of your quota based on your `Rating`.  
+Default is `F2`.  
 
 ### Deliver
+Delivers as many tons as you can hold.  
+Depends on the value of `CargoCapacity`.  
+Default is `F3`.  
 
 ### Kill
+Kills the script.  
+Useful if things go wrong, like if you click outside the game window while the script is working, or the timings are off and the autoclicks are out of sync with the menu state.  
+Default is `F4`.  
+
+# Notes
+- Script concept originally by CMDR Suladir
+- Overhauled for ease of use and flexibility by CMDR Roachy1
+- For the Princess!
