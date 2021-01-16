@@ -96,7 +96,7 @@ Default is `d`.
 
 ### KeySelect
 The keystroke used to select/click options/buttons.  
-Default is 'Space'.  
+Default is `Space`.  
 
 # Timing Variables
 Only configure these if the script is not working as expected.  
