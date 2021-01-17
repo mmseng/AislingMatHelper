@@ -53,13 +53,13 @@ KeySelect = Space
 ; Timings are in ms
 ; ===========================================================
 
-; Delay after clicking "Fast track next quota" button
+; Delay after clicking "FAST TRACK NEXT QUOTA FOR X CR." button
 DelayFasttrack = 500
 
-; Delay after clicking confirm (when buying mats)
+; Delay after clicking "CONFIRM" (when buying mats)
 DelayConfirm = 700
 
-; Delay after clicking confirm on the confirmation screen
+; Delay after clicking "BACK TO MAIN PAGE" on the "ACTION RESULTS" page
 DelayLoop = 200
 
 ; Delay when loading
@@ -121,11 +121,11 @@ JumpBuyOneQuota:
 	sleep, %DelayLoad%
 	send, {%KeyRight% up}
 
-	; Confirm amount
+	; Click "CONFIRM"
 	send, {%KeySelect%}
-	; Wait for screen change
+	; Wait for "ACTION RESULTS" page to load
 	sleep, %DelayConfirm%
-	; Confirm confirmation screen
+	; Click "BACK TO MAIN PAGE"
 	send, {%KeySelect%}
 
 	Return
@@ -151,11 +151,11 @@ JumpBuyAllQuotas:
 		sleep, %DelayLoad%
 		send, {%KeyRight% up}
 
-		; Confirm amount
+		; Click "CONFIRM"
 		send, {%KeySelect%}
-		; Wait for screen change
+		; Wait for "ACTION RESULTS" page to load
 		sleep, %DelayConfirm%
-		; Confirm confirmation screen
+		; Click "BACK TO MAIN PAGE"
 		send, {%KeySelect%}
 		
 		; Loop delay

@@ -113,7 +113,7 @@ Only configure these if the script is not working as expected.
 All timings are in milliseconds (ms).  
 
 ### DelayFasttrack
-The delay after clicking the "FAST TRACK NEXT QUOTA" button.  
+The delay after clicking the "FAST TRACK NEXT QUOTA FOR X CR." button.  
 Default is `500`.  
 Needed because the UI pauses briefly after clicking this, before allowing you to load materials.  
 This delay (and the button click) happen regardless of whether you actually need to click the button or not, because it doesn't hurt anything.  
@@ -121,10 +121,10 @@ This delay (and the button click) happen regardless of whether you actually need
 ### DelayConfirm
 The delay after clicking the "CONFIRM" button after loading materials.  
 Default is `700`.  
-Needed because the UI pauses briefly before continuing to the confirmation screen.  
+Needed because the UI pauses briefly before continuing to the "ACTION RESULTS" page.  
 
 ### DelayLoop
-The delay after clicking the "CONFIRM" button on the confirmation screen.  
+The delay after clicking the "BACK TO MAIN PAGE" button on the "ACTION RESULTS" page.  
 Default is `200`.  
 Needed because the UI pauses briefly before returning to the Power Contact screen.  
 Only applies to the `BuyAllQuotas` action.  
