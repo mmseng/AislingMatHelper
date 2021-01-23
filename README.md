@@ -50,11 +50,11 @@ This dictates how many full quotas the script will buy.
 It's highly recommended to make this a multiple of your rating's quota amount, or you may spend more credits than you need to.  
 
 Quota amounts are as follows:  
-Rating 1: 10t  
-Rating 2: 15t  
-Rating 3: 20t  
-Rating 4: 25t  
-Rating 5: 50t  
+- Rating 1: 10t  
+- Rating 2: 15t  
+- Rating 3: 20t  
+- Rating 4: 25t  
+- Rating 5: 50t  
 
 For example if your rating is 5, and you have 704 cargo capacity, set this to 700. Otherwise the script will buy another 50, but you'll only have room to load 4 more.  
 
