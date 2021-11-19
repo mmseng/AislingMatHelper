@@ -25,7 +25,10 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 2. Open it using a text editor
 3. Configure the variables near the top, based on the documentation below
 4. Run the script
-5. You may wish to create multiple copies of the script with different variable values for different purposes
+
+Notes:
+- If the timings aren't quite right for your specific rig, see the [#timing-variables](Timing Variables) section below.
+- You may wish to create multiple copies of the script with different variable values for different purposes.
 
 ### Use in game
 1. Dock at a station and open the Power Contact menu
