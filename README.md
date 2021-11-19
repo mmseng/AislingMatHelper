@@ -28,7 +28,7 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 
 ### Use in game
 1. Dock at a station and open the Power Contact menu.
-2. If you have a salary to claim, claim it, and reopen the Power Contact menu, to remove that menu option.
+2. If you have a salary to claim, claim it and reopen the Power Contact menu, to remove that menu option.
 3. Make sure the top button is selected (i.e. `FULL SYSTEM STATISTICS`).
 4. Make sure your mouse cursor is away from any buttons, as it can interfere.
 5. Press your configured hotkey for the desired action.
