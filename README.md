@@ -39,6 +39,7 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 - You may wish to create multiple copies of the script with different variable values for different purposes.
 - If you get sidetracked like I always do and end up clicking out of game or otherwise interfering with the scripts inputs, use the `Kill` hotkey (default `F4`) to exit the script. You'll need to re-launch it.
 - For repeated editing of the script I recommend using <a href='https://notepad-plus-plus.org/'>Notepad++</a> and installing the <a href='https://stackoverflow.com/questions/45466733/autohotkey-syntax-highlighting-in-notepad'>AHK language definition</a> for syntax highlighting.
+<br />
 
 # Important variables
 Make sure to configure these three variables, or the script won't behave as expected.  
@@ -70,6 +71,7 @@ Defines which material type to buy.
 `2` = fortification materials (programme materials).  
 Default is `2`.  
 Theoretically `3` could work for expansion materials (sealed contracts), but this is untested, and depends on which materials are available at your current station. Aisling powerplay generally revolves strictly around hauling fortification materials from Cubeo, so that is the primary purpose of this script.  
+<br />
 
 # Hotkey variables
 These variables define which hotkeys do what.  
@@ -97,6 +99,7 @@ i.e. This just selects the delivery button and holds the right arrow for roughly
 Kills the script.  
 Useful if things go wrong, like if you click outside the game window while the script is working, or the timings are off and the autoclicks are out of sync with the menu state.  
 Default is `F4`.  
+<br />
 
 # Menu Navigation Variables
 These are the keystrokes used by the script to navigate through menu options.  
@@ -114,6 +117,7 @@ Default is `d`.
 ### KeySelect
 The keystroke used to select/click options/buttons.  
 Default is `Space`.  
+<br />
 
 # Timing Variables
 Only configure these if the script is not working as expected.  
@@ -145,6 +149,7 @@ Testing shows that an acceptable value is something around 60ms per ton loaded, 
 The delay after pressing the "right" key before releasing it, when delivering materials.  
 The delay depends on your `CargoCapacity`.  
 Testing shows that an acceptable value is something around 60ms per ton delivered, conservatively.  
+<br />
 
 # Notes
 - [Original script](https://pastebin.com/9MFvm8ek) by CMDR Oraki/Sulandir
