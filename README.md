@@ -31,11 +31,14 @@ Notes:
 - You may wish to create multiple copies of the script with different variable values for different purposes.
 
 ### Use in game
-1. Dock at a station and open the Power Contact menu
-2. Make sure the top button is selected ("FULL SYSTEM STATISTICS")
-3. Make sure your mouse cursor is away from any buttons, as it can interfere
-4. Press your configured hotkey for the desired action
-5. Don't touch anything while the script takes control of your inputs
+1. Dock at a station and open the Power Contact menu.
+2. If you have a salary to claim, claim it, and reopen the Power Contact menu, to remove that menu option.
+3. Make sure the top button is selected ("FULL SYSTEM STATISTICS").
+4. Make sure your mouse cursor is away from any buttons, as it can interfere.
+5. Press your configured hotkey for the desired action.
+6. Don't touch anything while the script takes control of your inputs.
+
+Note: if you get sidetracked like I always do and end up clicking out of game, use the `Kill` hotkey (default `F4`) to exit the script. You'll need to re-launch it.  
 
 # Important variables
 Make sure to configure these three variables, or the script won't behave as expected.  
