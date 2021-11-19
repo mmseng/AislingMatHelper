@@ -72,7 +72,7 @@ Theoretically `3` could work for expansion materials (sealed contracts), but thi
 
 # Hotkey variables
 These variables define which hotkeys do what.  
-See these docs for the syntax for other keys and modifiers (like Ctrl):  
+See these docs for the syntax for other keys and key modifiers (such as `Ctrl`):  
 - https://www.autohotkey.com/docs/Hotkeys.htm
 - https://www.autohotkey.com/docs/KeyList.htm
 
