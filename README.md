@@ -21,7 +21,7 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 # Usage
 
 ### Configure and run the script
-1. Download `AislingMatHelper.ahk`.
+1. Download <a href='https://raw.githubusercontent.com/mmseng/AislingMatHelper/main/AislingMatHelper.ahk'>AislingMatHelper.ahk</a> (right click the link and `Save as`).
 2. Open it using a text editor.
 3. Configure the variables near the top. See the <a href='#important-variables'>Variables</a> documented below.
 4. Run the script.
