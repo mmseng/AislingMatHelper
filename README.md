@@ -26,10 +26,6 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 3. Configure the variables near the top. See the <a href='#important-variables'>Variables</a> documented below.
 4. Run the script.
 
-Notes:
-- If the timings aren't quite right for your specific rig, see the <a href='#timing-variables'>Timing Variables</a> section below. The timings were mostly tested in Horizons. The script works in Odyssey, but the timings may need some minor tweaking.
-- You may wish to create multiple copies of the script with different variable values for different purposes.
-
 ### Use in game
 1. Dock at a station and open the Power Contact menu.
 2. If you have a salary to claim, claim it, and reopen the Power Contact menu, to remove that menu option.
@@ -38,7 +34,10 @@ Notes:
 5. Press your configured hotkey for the desired action.
 6. Don't move your mouse or press any keys while the script takes control of your inputs. Once it's done you can continue playing as usual.
 
-Note: if you get sidetracked like I always do and end up clicking out of game or otherwise interfering with the scripts inputs, use the `Kill` hotkey (default `F4`) to exit the script. You'll need to re-launch it.  
+### Usage notes
+- If the timings aren't quite right for your specific rig, see the <a href='#timing-variables'>Timing Variables</a> section below. The timings were mostly tested in Horizons. The script works in Odyssey, but the timings may need some minor tweaking.
+- You may wish to create multiple copies of the script with different variable values for different purposes.
+- If you get sidetracked like I always do and end up clicking out of game or otherwise interfering with the scripts inputs, use the `Kill` hotkey (default `F4`) to exit the script. You'll need to re-launch it.  
 
 # Important variables
 Make sure to configure these three variables, or the script won't behave as expected.  
