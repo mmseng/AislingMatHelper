@@ -21,10 +21,10 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 # Usage
 
 ### Configure and run the script
-1. Download `AislingMatHelper.ahk`
-2. Open it using a text editor
-3. Configure the variables near the top, based on the documentation below
-4. Run the script
+1. Download `AislingMatHelper.ahk`.
+2. Open it using a text editor.
+3. Configure the variables near the top. See the <a href='#important-variables'>Variables</a> documented below.
+4. Run the script.
 
 Notes:
 - If the timings aren't quite right for your specific rig, see the <a href='#timing-variables'>Timing Variables</a> section below.
