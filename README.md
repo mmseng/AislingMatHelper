@@ -69,7 +69,7 @@ Defines which material type to buy.
 `1` = preperation materials (media materials).  
 `2` = fortification materials (programme materials).  
 Default is `2`.  
-Theoretically `3` could work for expansion materials (sealed contracts), but this is untested, and depends on which materials are available at your current station.  
+Theoretically `3` could work for expansion materials (sealed contracts), but this is untested, and depends on which materials are available at your current station. Aisling powerplay generally revolves strictly around hauling fortification materials from Cubeo, so that is the primary purpose of this script.  
 
 # Hotkey variables
 These variables define which hotkeys do what.  
