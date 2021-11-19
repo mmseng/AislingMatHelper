@@ -22,7 +22,7 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 
 ### Configure and run the script
 1. Download <a href='https://raw.githubusercontent.com/mmseng/AislingMatHelper/main/AislingMatHelper.ahk'>AislingMatHelper.ahk</a> (right click the link and select `Save link as...`).
-2. Open it using a text editor. I recommend <a href='https://notepad-plus-plus.org/'>Notepad++</a> for the native AHK syntax highlighting.
+2. Open it using a text editor.
 3. Configure the variables near the top. See the <a href='#important-variables'>Variables</a> documented below.
 4. Run the script.
 
@@ -37,7 +37,8 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 ### Usage notes
 - If the timings aren't quite right for your specific rig, see the <a href='#timing-variables'>Timing Variables</a> section below. The timings were mostly tested in Horizons. The script works in Odyssey, but the timings may need some minor tweaking.
 - You may wish to create multiple copies of the script with different variable values for different purposes.
-- If you get sidetracked like I always do and end up clicking out of game or otherwise interfering with the scripts inputs, use the `Kill` hotkey (default `F4`) to exit the script. You'll need to re-launch it.  
+- If you get sidetracked like I always do and end up clicking out of game or otherwise interfering with the scripts inputs, use the `Kill` hotkey (default `F4`) to exit the script. You'll need to re-launch it.
+- For repeated editing of the script I recommend using <a href='https://notepad-plus-plus.org/'>Notepad++</a> and installing the <a href='https://stackoverflow.com/questions/45466733/autohotkey-syntax-highlighting-in-notepad'>AHK language definition</a> for syntax highlighting.
 
 # Important variables
 Make sure to configure these three variables, or the script won't behave as expected.  
