@@ -36,9 +36,9 @@ Notes:
 3. Make sure the top button is selected ("FULL SYSTEM STATISTICS").
 4. Make sure your mouse cursor is away from any buttons, as it can interfere.
 5. Press your configured hotkey for the desired action.
-6. Don't touch anything while the script takes control of your inputs.
+6. Don't move your mouse or press any keys while the script takes control of your inputs. Once it's done you can continue playing as usual.
 
-Note: if you get sidetracked like I always do and end up clicking out of game, use the `Kill` hotkey (default `F4`) to exit the script. You'll need to re-launch it.  
+Note: if you get sidetracked like I always do and end up clicking out of game or otherwise interfering with the scripts inputs, use the `Kill` hotkey (default `F4`) to exit the script. You'll need to re-launch it.  
 
 # Important variables
 Make sure to configure these three variables, or the script won't behave as expected.  
