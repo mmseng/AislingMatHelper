@@ -69,7 +69,7 @@ Defines which material type to buy.
 `1` = preperation materials (media materials).  
 `2` = fortification materials (programme materials).  
 Default is `2`.  
-Theoretically `3` could work for expansion materials (sealed contracts), but this is untested.  
+Theoretically `3` could work for expansion materials (sealed contracts), but this is untested, and depends on which materials are available at your current station.  
 
 # Hotkey variables
 These variables define which hotkeys do what.  
