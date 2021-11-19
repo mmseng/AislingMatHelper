@@ -17,6 +17,8 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 - Windows
 - PC version of Elite Dangerous
 - [Autohotkey](https://www.autohotkey.com) v1.1.31.00 or newer installed
+<br />
+<br />
 
 # Usage
 
