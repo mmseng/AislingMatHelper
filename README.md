@@ -33,7 +33,7 @@ Notes:
 ### Use in game
 1. Dock at a station and open the Power Contact menu.
 2. If you have a salary to claim, claim it, and reopen the Power Contact menu, to remove that menu option.
-3. Make sure the top button is selected ("FULL SYSTEM STATISTICS").
+3. Make sure the top button is selected (i.e. `FULL SYSTEM STATISTICS`).
 4. Make sure your mouse cursor is away from any buttons, as it can interfere.
 5. Press your configured hotkey for the desired action.
 6. Don't move your mouse or press any keys while the script takes control of your inputs. Once it's done you can continue playing as usual.
@@ -119,24 +119,24 @@ Only configure these if the script is not working as expected.
 All timings are in milliseconds (ms).  
 
 ### DelayFasttrack
-The delay after clicking the "FAST TRACK NEXT QUOTA FOR X CR." button.  
+The delay after clicking the `FAST TRACK NEXT QUOTA FOR X CR.` button.  
 Default is `500`.  
 Needed because the UI pauses briefly after clicking this, before allowing you to load materials.  
 This delay (and the button click) happen regardless of whether you actually need to click the button or not, because it doesn't hurt anything.  
 
 ### DelayConfirm
-The delay after clicking the "CONFIRM" button after loading materials.  
+The delay after clicking the `CONFIRM` button after loading materials.  
 Default is `700`.  
-Needed because the UI pauses briefly before continuing to the "ACTION RESULTS" page.  
+Needed because the UI pauses briefly before continuing to the `ACTION RESULTS` page.  
 
 ### DelayLoop
-The delay after clicking the "BACK TO MAIN PAGE" button on the "ACTION RESULTS" page.  
+The delay after clicking the `BACK TO MAIN PAGE` button on the `ACTION RESULTS` page.  
 Default is `200`.  
 Needed because the UI pauses briefly before returning to the Power Contact screen.  
 Only applies to the `BuyAllQuotas` action.  
 
 ### DelayLoad
-The delay after pressing the "right" key before releasing it, when loading materials.  
+The delay after pressing the right arrow key before releasing it, when loading materials.  
 The delay depends on the quota size, which depends on your `Rating`.  
 Testing shows that an acceptable value is something around 60ms per ton loaded, conservatively.  
 
