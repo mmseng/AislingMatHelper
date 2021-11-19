@@ -27,7 +27,7 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 4. Run the script.
 
 Notes:
-- If the timings aren't quite right for your specific rig, see the <a href='#timing-variables'>Timing Variables</a> section below.
+- If the timings aren't quite right for your specific rig, see the <a href='#timing-variables'>Timing Variables</a> section below. The timings were mostly tested in Horizons. The script works in Odyssey, but the timings may need some minor tweaking.
 - You may wish to create multiple copies of the script with different variable values for different purposes.
 
 ### Use in game
