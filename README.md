@@ -1,5 +1,5 @@
 # Summary
-This is an Autohotkey script which helps to automate tedious keystrokes in Elite Dangerous.  
+This is an Autohotkey (AHK) script which helps to automate tedious keystrokes in Elite Dangerous.  
 
 Specifically, this was designed for players pledged to the Aisling Duval power, to automate the keystrokes required to purchase and load preparation and fortification materials, and deliver these materials.  
 
@@ -22,7 +22,7 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 
 ### Configure and run the script
 1. Download <a href='https://raw.githubusercontent.com/mmseng/AislingMatHelper/main/AislingMatHelper.ahk'>AislingMatHelper.ahk</a> (right click the link and select `Save link as...`).
-2. Open it using a text editor. I recommend <a href='https://notepad-plus-plus.org/'>Notepad++</a> for the native syntax highlighting.
+2. Open it using a text editor. I recommend <a href='https://notepad-plus-plus.org/'>Notepad++</a> for the native AHK syntax highlighting.
 3. Configure the variables near the top. See the <a href='#important-variables'>Variables</a> documented below.
 4. Run the script.
 
