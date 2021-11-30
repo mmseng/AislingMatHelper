@@ -31,13 +31,13 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 2. If you have a salary to claim, claim it and reopen the Power Contact menu, to remove that menu option.
 3. Make sure the top button is selected (i.e. `FULL SYSTEM STATISTICS`).
 4. Make sure your mouse cursor is away from any buttons, as it can interfere.
-5. Press your configured hotkey for the desired action.
+5. Press your configured hotkey for the desired action (default `F2` to buy mats, default `F3` to deliver).
 6. Don't move your mouse or press any keys while the script takes control of your inputs. Once it's done you can continue playing as usual.
 
 ### Usage notes
 - If the timings aren't quite right for your specific rig, see the <a href='#timing-variables'>Timing Variables</a> section below. The timings were mostly tested in Horizons. The script works in Odyssey, but the timings may need some minor tweaking.
 - You may wish to create multiple copies of the script with different variable values for different purposes.
-- If you get sidetracked like I always do and end up clicking out of game or otherwise interfering with the scripts inputs, use the `Kill` hotkey (default `F4`) to exit the script. You'll need to re-launch it.
+- If you get sidetracked like I always do and end up clicking out of game or otherwise interfering with the script's inputs, use the `Kill` hotkey (default `F4`) to exit the script. You'll need to re-launch it.
 - For repeated editing of the script I recommend using <a href='https://notepad-plus-plus.org/'>Notepad++</a> and installing the <a href='https://stackoverflow.com/questions/45466733/autohotkey-syntax-highlighting-in-notepad'>AHK language definition</a> for syntax highlighting.
 <br />
 
