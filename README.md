@@ -121,6 +121,7 @@ Note: it's recommended to use lowercase letters to avoid conflicts with Shift ke
 ### KeyUp
 The keystroke used to navigate up in menus.  
 Default is `w`.  
+Only needed when buying prep mats due to a menu navigation inconsistency in Odyssey.  
 
 ### KeyDown
 The keystroke used to navigate down in menus.  
