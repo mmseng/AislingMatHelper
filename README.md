@@ -39,12 +39,6 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
       - Press your configured `Deliver` hotkey.
 6. Don't move your mouse or press any keys while the script takes control of your inputs. Once it's done you can continue playing as usual.
 
-#### Buying
-
-
-#### Delivering
-
-
 ### Usage notes
 - If the timings aren't quite right for your specific rig, see the <a href='#timing-variables'>Timing Variables</a> section below. The timings were mostly tested in Horizons. The script works in Odyssey, but the timings may need some minor tweaking.
 - You may wish to create multiple copies of the script with different variable values for different purposes. For example, you could have one copy for fortifying at rating 1 with cargo capacity of 300, and one copy for fortifying at rating 5 with cargo capacity of 700.
