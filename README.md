@@ -188,7 +188,7 @@ Script was last updated on 2021-12-05 with the following improvements:
     - To account for this, a new important variable was added (`GameVersion`).
   - Tested timings and updated so that the default timings work in both Horizons and Odyssey (based on my testing with a decent computer).
   - Simplified and de-duplicated some logic by making use of functions and subroutines.
-  - Added AssumeFirstDeliveryOption variable and documentation. See <a href='#assumefirstdeliveryoption'>AssumeFirstDeliveryOption</a for details.
+  - Added AssumeFirstDeliveryOption variable and documentation. See <a href='#assumefirstdeliveryoption'>AssumeFirstDeliveryOption</a> for details.
 
 # Notes
 - [Original script](https://pastebin.com/9MFvm8ek) by CMDR Oraki/Sulandir
