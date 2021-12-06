@@ -31,17 +31,13 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 2. If you have a salary to claim, claim it and reopen the Power Contact menu, to remove that menu option.
 3. Make sure the top button is selected (i.e. `FULL SYSTEM STATISTICS`).
 4. Make sure your mouse cursor is away from any buttons, as it can interfere.
-5. Do one of the following:
-    - To buy:
-      - Press your configured `BuyOneQuota` or `BuyAllQuotas` hotkey.
-    - To deliver:
-      - Highlight the material you want to deliver.
-      - Press your configured `Deliver` hotkey.
+5. Press your configured hotkey for the desired action.
 6. Don't move your mouse or press any keys while the script takes control of your inputs. Once it's done you can continue playing as usual.
 
 ### Usage notes
 - If the timings aren't quite right for your specific rig, see the <a href='#timing-variables'>Timing Variables</a> section below.
 - You may wish to create multiple copies of the script with different variable values for different purposes. For example, you could have one copy for fortifying at rating 1 with cargo capacity of 300 in Horizons, and one copy for prepping at rating 5 with cargo capacity of 700 in Odyssey.
+- If you find that your `Deliver` hotkey isn't selecting the right menu option, see <a href='#assumefirstdeliveryoption'>AssumeFirstDeliveryOption</a> below.
 - If you get sidetracked like I always do and end up clicking out of game or otherwise interfering with the script's inputs, use the `Kill` hotkey (default `F4`) to exit the script. You'll need to re-launch it.
 - For repeated editing of the script I recommend using <a href='https://notepad-plus-plus.org/'>Notepad++</a> and installing the <a href='https://stackoverflow.com/questions/45466733/autohotkey-syntax-highlighting-in-notepad'>AHK language definition</a> for syntax highlighting.
 <br />
@@ -134,6 +130,17 @@ Default is `d`.
 ### KeySelect
 The keystroke used to select/click options/buttons.  
 Default is `Space`.  
+
+### AssumeFirstDeliveryOption
+This variable determines whether, when pressing the `Deliver` hotkey, the script immediately begins unloading, or whether it navigates down one menu option first and then unloads.  
+`0` = unload immediately.
+  - Player is required to highlight the delivery option before hitting the Deliver hotkey. Adds a manual keystroke in exchange for guarantee that the wrong menu option is not selected.  
+`1` = navigate down first, then unload.
+  - Player hits Deliver hotkey while "FULL SYSTEM STATISTICS" button is highlighted, and the script navigates down one before delivering. Saves a manual keystroke, but if the menu state is not as expected, this could result in accidentally purchasing ("fast-tracking") a quota of an undesired material, wasting credits.
+Default is `1`.  
+This is because the menu order depends on other factors, such as the state of the system, and the materials present in the ship's inventory.  
+In _most_ usual circumstances (delivering fort mats to systems which need fortification when fort mats are in the inventory, or delivering prep mats to systems which need prep when prep mats are in the inventory), the desired material to deliver is the first option.  
+Change to `0` if you're finding this is not the case.  
 <br />
 
 # Timing Variables

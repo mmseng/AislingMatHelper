@@ -48,6 +48,14 @@ KeyDown = s
 KeyRight = d
 KeySelect = Space
 
+; This variable determines whether, when pressing the `Deliver` hotkey, the script immediately begins unloading, or whether it navigates down one menu option first and then unloads.
+; 0 = unload immediately. Player is required to highlight the delivery option before hitting the Deliver hotkey. Adds a manual keystroke in exchange for guarantee that the wrong menu option is not selected.
+; 1 = navigate down first, then unload. Player hits Deliver hotkey while "FULL SYSTEM STATISTICS" button is highlighted, and the script navigates down one before delivering. Saves a manual keystroke, but if the menu state is not as expected, this could result in accidentally purchasing ("fast-tracking") a quota of an undesired material, wasting credits.
+; This is because the menu order depends on other factors, such as the state of the system, and the materials present in the ship's inventory.
+; In _most_ usual circumstances (delivering fort mats to systems which need fortification when fort mats are in the inventory, or delivering prep mats to systems which need prep when prep mats are in the inventory), the desired material to deliver is the first option.
+; Change to `0` if you're finding this is not the case.
+AssumeFirstDeliveryOption = 1
+
 
 
 ; ===========================================================
@@ -116,6 +124,7 @@ Return
 ; In Horizons, after buying prep mats, the "FULL SYSTEM STATISTICS" button is selected.
 ; In Odyssey, for some reason, it highlights the prep mats "FAST TRACK..." button instead.
 ; This is only the case for buying prep mats. Buying fort mats still returns to highlighting "FULL SYSTEMS STATISTICS", just like in Horizons.
+; This is the case as of 2021-12-05, but it's possible this inconsistency may be fixed at some point, and this logic will need to be removed.
 
 HighlightFSS:
 	if((GameVersion == 2) and (MaterialType == 1)) {
@@ -192,9 +201,12 @@ JumpBuyAllQuotas:
 ; --------------------------------------
 
 ; Unload all
-; User must highlight the material manually, as the menu order depends on the system state and the user's ship inventory.
-; Usually, the desired material to deliver is the first option (fort mats to systems which need fortification when fort mats are in the inventory, or prep mats to systems which need prep when prep mats are in the inventory), but I'm not going to assume that in the script as a misclick can result in buying an unwanted quota.
 JumpDeliver:
+	; Navigate down to the first delivery option, or don't, depending on AssumeFirstDeliveryOption.
+	if(AssumeFirstDeliveryOption == 1) {
+		send {%KeyDown%}
+	}
+	
 	; Unload
 	send {%KeyRight% down}
 	sleep %DelayDeliver%
@@ -213,6 +225,7 @@ JumpKill:
 	send {%KeyDown% up}
 	send {%KeyRight% up}
 	send {%KeySelect% up}
+	
 	; Exit the script
 	ExitApp
 
