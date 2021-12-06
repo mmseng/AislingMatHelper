@@ -134,7 +134,8 @@ Default is `Space`.
 ### AssumeFirstDeliveryOption
 This variable determines, after pressing the `Deliver` hotkey, whether the script immediately begins unloading, or whether it navigates down one menu option first and then unloads.  
 `0` = unload immediately.
-  - Player is required to highlight the delivery option before hitting the Deliver hotkey. Adds a manual keystroke in exchange for guarantee that the wrong menu option is not selected.  
+  - Player is required to highlight the delivery option before hitting the Deliver hotkey. Adds a manual keystroke in exchange for guarantee that the wrong menu option is not selected.
+
 `1` = navigate down first, then unload.
   - Player hits Deliver hotkey while "FULL SYSTEM STATISTICS" button is highlighted, and the script navigates down one before delivering. Saves a manual keystroke, but if the menu state is not as expected, this could result in accidentally purchasing ("fast-tracking") a quota of an undesired material, wasting credits.
 Default is `1`.  
