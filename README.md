@@ -33,10 +33,10 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 4. Make sure your mouse cursor is away from any buttons, as it can interfere.
 5. Do one of the following:
     - To buy:
-      - Press your configured `BuyOneQuota` (default `F1`) or `BuyAllQuotas` (default `F2`) hotkey.
+      - Press your configured `BuyOneQuota` or `BuyAllQuotas` hotkey.
     - To deliver:
       - Highlight the material you want to deliver.
-      - Press your configured `Deliver` hotkey (default `F3`).
+      - Press your configured `Deliver` hotkey.
 6. Don't move your mouse or press any keys while the script takes control of your inputs. Once it's done you can continue playing as usual.
 
 #### Buying
