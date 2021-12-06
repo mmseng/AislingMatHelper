@@ -94,7 +94,7 @@ Default is `F1`.
 Buys as many quotas as you can hold.  
 Depends on the value of `CargoCapacity` and the size of your quota based on your `Rating`.  
 Default is `F2`.  
-e.g. If your `CargoCapacity` is 700, and your `Rating` is 5, then this will buy 700/50 = 14 full quotas.  
+e.g. If your `CargoCapacity` is 700, and your `Rating` is 5, then this will buy 700 / 50 = 14 full quotas.  
 
 ### Deliver
 Delivers as many tons as you can hold.  
