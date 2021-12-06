@@ -52,7 +52,7 @@ KeySelect = Space
 ; 0 = unload immediately. Player is required to highlight the delivery option before hitting the Deliver hotkey. Adds a manual keystroke in exchange for guarantee that the wrong menu option is not selected.
 ; 1 = navigate down first, then unload. Player hits Deliver hotkey while "FULL SYSTEM STATISTICS" button is highlighted, and the script navigates down one before delivering. Saves a manual keystroke, but if the menu state is not as expected, this could result in accidentally purchasing ("fast-tracking") a quota of an undesired material, wasting credits.
 ; This is because the menu order depends on other factors, such as the state of the system, and the materials present in the ship's inventory.
-; In _most_ usual circumstances (delivering fort mats to systems which need fortification when fort mats are in the inventory, or delivering prep mats to systems which need prep when prep mats are in the inventory), the desired material to deliver is the first option.
+; In _most_ usual circumstances (i.e. delivering fort mats to systems which need fortification when fort mats are in the inventory, or delivering prep mats to systems which need prep when prep mats are in the inventory), the desired material to deliver is the first option.
 ; Change to `0` if you're finding this is not the case.
 AssumeFirstDeliveryOption = 1
 
