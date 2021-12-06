@@ -31,8 +31,14 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 2. If you have a salary to claim, claim it and reopen the Power Contact menu, to remove that menu option.
 3. Make sure the top button is selected (i.e. `FULL SYSTEM STATISTICS`).
 4. Make sure your mouse cursor is away from any buttons, as it can interfere.
-5. Press your configured hotkey for the desired action (default `F2` to buy mats, default `F3` to deliver).
-6. Don't move your mouse or press any keys while the script takes control of your inputs. Once it's done you can continue playing as usual.
+5. Don't move your mouse or press any keys while the script takes control of your inputs. Once it's done you can continue playing as usual.
+
+#### Buying
+6. Press your configured `BuyOneQuota` (default `F1`) or `BuyAllQuotas` (default `F2`) hotkey.
+
+#### Delivering
+6. Highlight the material you want to deliver.
+7. Press your configured `Deliver` hotkey (default `F3`).
 
 ### Usage notes
 - If the timings aren't quite right for your specific rig, see the <a href='#timing-variables'>Timing Variables</a> section below. The timings were mostly tested in Horizons. The script works in Odyssey, but the timings may need some minor tweaking.
@@ -42,7 +48,13 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 <br />
 
 # Important variables
-Make sure to configure these three variables, or the script won't behave as expected.  
+Make sure to configure these four variables, or the script won't behave as expected.  
+
+### GameVersion
+Set this to `1` for use with Horizons.  
+Set this to `2` for use with Odyssey.  
+Default is `1`.  
+Only needed when buying prep mats due to a menu navigation inconsistency in Odyssey.  
 
 ### Rating
 Set this to your current pledge rating.  
@@ -70,7 +82,7 @@ Defines which material type to buy.
 `1` = preperation materials (media materials).  
 `2` = fortification materials (programme materials).  
 Default is `2`.  
-Theoretically `3` could work for expansion materials (sealed contracts), but this is untested, and depends on which materials are available at your current station. Aisling powerplay generally revolves strictly around hauling fortification materials from Cubeo, so that is the primary purpose of this script.  
+Theoretically `3` could work for expansion materials (sealed contracts), but this is untested, and depends on various factors. Aisling powerplay generally revolves strictly around hauling fortification materials from Cubeo, so that is the primary purpose of this script.  
 <br />
 
 # Hotkey variables
@@ -106,6 +118,10 @@ These are the keystrokes used by the script to navigate through menu options.
 If you use custom keybinds for this in Elite Dangerous, edit these accordingly.  
 Note: it's recommended to use lowercase letters to avoid conflicts with Shift keys.  
 
+### KeyUp
+The keystroke used to navigate up in menus.  
+Default is `w`.  
+
 ### KeyDown
 The keystroke used to navigate down in menus.  
 Default is `s`.  
@@ -125,13 +141,13 @@ All timings are in milliseconds (ms).
 
 ### DelayFasttrack
 The delay after clicking the `FAST TRACK NEXT QUOTA FOR X CR.` button.  
-Default is `500`.  
+Default is `800`.  
 Needed because the UI pauses briefly after clicking this, before allowing you to load materials.  
 This delay (and the button click) happen regardless of whether you actually need to click the button or not, because it doesn't hurt anything.  
 
 ### DelayConfirm
 The delay after clicking the `CONFIRM` button after loading materials.  
-Default is `700`.  
+Default is `1000`.  
 Needed because the UI pauses briefly before continuing to the `ACTION RESULTS` page.  
 
 ### DelayLoop
@@ -143,13 +159,25 @@ Only applies to the `BuyAllQuotas` action.
 ### DelayLoad
 The delay after pressing the right arrow key before releasing it, when loading materials.  
 The delay depends on the quota size, which depends on your `Rating`.  
-Testing shows that an acceptable value is something around 60ms per ton loaded, conservatively.  
+Testing shows that an acceptable value is something around 60-70ms per ton loaded.  
+Default is `60`.  
 
 ### DelayDeliver
 The delay after pressing the "right" key before releasing it, when delivering materials.  
 The delay depends on your `CargoCapacity`.  
-Testing shows that an acceptable value is something around 60ms per ton delivered, conservatively.  
+Testing shows that an acceptable value is something around 50-60ms per ton delivered.  
+Default is `51`.  
 <br />
+
+# Last updated
+Script was last updated on 2021-12-05 with the following improvements:
+  - Added code to correct for an inconsistency in the menu navigation in Odyssey.
+    - When returning to the Power Contact screen from buying/loading prep mats, Odyssey highlights the "FAST TRACK..." button for prep mats again, rather than the "FULL SYSTEM STATISTICS" button. This is only the case for buying prep mats in Odyssey. Horizons, and buying fort mats in either version, is unaffected.
+	- To account for this, a new important variable was added (`GameVersion`).
+  - Tested timings and updated so that the default timings work in both Horizons and Odyssey (based on my testing with a decent computer).
+  - Simplified and de-duplicated some logic by making use of functions and subroutines.
+  - Changed delivery logic such that the player is now required to select the appropriate material before pressing the `Deliver` hotkey.
+    - This is because the order of the menu options depends on system state and the state material in the ship's inventory. Getting this wrong could result in buying a quota of unwanted material.
 
 # Notes
 - [Original script](https://pastebin.com/9MFvm8ek) by CMDR Oraki/Sulandir
