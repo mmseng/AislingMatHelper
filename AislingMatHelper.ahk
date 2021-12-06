@@ -31,18 +31,19 @@ SetKeyDelay, 50, 50
 ; See script documentation on GitHub for details
 ; ===========================================================
 
+; Important variables
 GameVersion = 1 ; 1 = Horizons, 2 = Odyssey
 Rating = 5 ; Your current pledge rating
 CargoCapacity = 700 ; Should be a multiple of your quota
 MaterialType = 2 ; 1 = prep mats, 2 = fort mats
 
-; Hotkeys
+; Hotkey variables
 BuyOneQuota = F1 ; Purchase a single full quota
 BuyAllQuotas = F2 ; Purchase as many quotas as will fit your configured cargo space
 Deliver = F3 ; Deliver all materials
 Kill = F4 ; Kill script (useful if things go wrong)
 
-; Menu navigation keys
+; Menu navigation variables
 KeyUp = w
 KeyDown = s
 KeyRight = d
