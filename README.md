@@ -36,9 +36,9 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 
 ### Usage notes
 - If the timings aren't quite right for your specific rig, see the <a href='#timing-variables'>Timing Variables</a> section below.
-- You may wish to create multiple copies of the script with different variable values for different purposes. For example, you could have one copy for fortifying at rating 1 with cargo capacity of 300 in Horizons, and one copy for prepping at rating 5 with cargo capacity of 700 in Odyssey.
 - If you find that your `Deliver` hotkey isn't selecting the right menu option, see <a href='#assumefirstdeliveryoption'>AssumeFirstDeliveryOption</a> below.
 - If you get sidetracked like I always do and end up clicking out of game or otherwise interfering with the script's inputs, use the `Kill` hotkey (default `F4`) to exit the script. You'll need to re-launch it.
+- You may wish to create multiple copies of the script with different variable values for different purposes. For example, you could have one copy for fortifying at rating 1 with cargo capacity of 300 in Horizons, and one copy for prepping at rating 5 with cargo capacity of 700 in Odyssey.
 - For repeated editing of the script I recommend using <a href='https://notepad-plus-plus.org/'>Notepad++</a> and installing the <a href='https://stackoverflow.com/questions/45466733/autohotkey-syntax-highlighting-in-notepad'>AHK language definition</a> for syntax highlighting.
 <br />
 
