@@ -70,7 +70,7 @@ Quota amounts are as follows:
 - Rating 4: 25t  
 - Rating 5: 50t  
 
-For example if your rating is 5, and you have 704 cargo capacity, set this to 700. Otherwise the script will buy another 50, but you'll only have room to load 4 more.  
+For example if your rating is 5, and you have 704 cargo capacity, set this to 700. If you set it to 704, the script will buy another 50, but you'll only have room to load 4 more.  
 
 ### MaterialType
 Defines which material type to buy.  
