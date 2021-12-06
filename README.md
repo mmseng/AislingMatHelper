@@ -104,7 +104,8 @@ e.g. If your `CargoCapacity` is 700, and your `Rating` is 5, then this will buy 
 Delivers as many tons as you can hold.  
 Depends on the value of `CargoCapacity`.  
 Default is `F3`.  
-i.e. This just selects the delivery button and holds the right arrow for roughly as long as it should take to deliver your whole payload before confirming.  
+i.e. This just holds the right arrow for roughly as long as it should take to deliver your whole payload before confirming.  
+You must manually highlight the approriate material selection first, because the menu order is depends on several factors.  
 
 ### Kill
 Kills the script.  
