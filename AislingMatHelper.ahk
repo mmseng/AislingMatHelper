@@ -207,14 +207,13 @@ JumpDeliver:
 
 ; --------------------------------------
 
-; Quick exit option if something goes horribly wrong.
+; Quick exit option in case something goes horribly wrong.
 JumpKill:
-	
-	; In case the script was killed while a key was virtually depressed
+	; Make sure all virtually-pressed keys are released
 	send {%KeyDown% up}
 	send {%KeyRight% up}
 	send {%KeySelect% up}
-	
+	; Exit the script
 	ExitApp
 
 ; EOF
