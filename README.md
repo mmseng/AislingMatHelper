@@ -139,6 +139,7 @@ Default is `Space`.
 # Timing Variables
 Only configure these if the script is not working as expected.  
 All timings are in milliseconds (ms).  
+Note: Sometimes, when the game servers (or your internet connection) are being slow, the "STAND BY" animation between screens may take longer than usual, and will throw off the script timings. There's not much you can do to predict this, but you can try to accommodate for it by extending the relevant timings, noted below.  
 
 ### DelayFasttrack
 The delay after clicking the `FAST TRACK NEXT QUOTA FOR X CR.` button.  
