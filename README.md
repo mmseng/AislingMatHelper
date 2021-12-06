@@ -133,6 +133,7 @@ Default is `Space`.
 
 ### AssumeFirstDeliveryOption
 This variable determines, after pressing the `Deliver` hotkey, whether the script immediately begins unloading, or whether it navigates down one menu option first and then unloads.  
+
 `0` = unload immediately.
   - Player is required to highlight the delivery option before hitting the Deliver hotkey. Adds a manual keystroke in exchange for guarantee that the wrong menu option is not selected.
 
