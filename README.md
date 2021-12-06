@@ -191,6 +191,7 @@ Script was last updated on 2021-12-05 with the following improvements:
   - Added AssumeFirstDeliveryOption variable and documentation. See <a href='#assumefirstdeliveryoption'>AssumeFirstDeliveryOption</a> for details.
 
 # Notes
+- If you discover an issue, have suggestions or questions, please feel free to open an <a href='https://github.com/mmseng/AislingMatHelper/issues'>Issue</a>.
 - [Original script](https://pastebin.com/9MFvm8ek) by CMDR Oraki/Sulandir
 - Overhauled for ease of use and flexibility by CMDR Roachy1
 - For the Princess!
