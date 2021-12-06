@@ -105,7 +105,7 @@ Delivers as many tons as you can hold.
 Depends on the value of `CargoCapacity`.  
 Default is `F3`.  
 i.e. This just holds the right arrow for roughly as long as it should take to deliver your whole payload before confirming.  
-You must manually highlight the approriate material selection first, because the menu order is depends on several factors.  
+You must manually highlight the approriate material selection first, because the menu order depends on several factors.  
 
 ### Kill
 Kills the script.  
