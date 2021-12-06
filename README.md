@@ -184,12 +184,11 @@ Default is `51`.
 # Last updated
 Script was last updated on 2021-12-05 with the following improvements:
   - Added code to correct for an inconsistency in the menu navigation in Odyssey.
-    - When returning to the Power Contact screen from buying/loading prep mats, Odyssey highlights the "FAST TRACK..." button for prep mats again, rather than the "FULL SYSTEM STATISTICS" button. This is only the case for buying prep mats in Odyssey. Horizons, and buying fort mats in either version, is unaffected.
+    - When returning to the Power Contact screen from buying/loading prep mats, Odyssey highlights the "FAST TRACK..." button for prep mats again, rather than the "FULL SYSTEM STATISTICS" button, as with every other such interaction. This is only the case for buying prep mats in Odyssey. Horizons, and buying fort mats in either version, is unaffected.
     - To account for this, a new important variable was added (`GameVersion`).
   - Tested timings and updated so that the default timings work in both Horizons and Odyssey (based on my testing with a decent computer).
   - Simplified and de-duplicated some logic by making use of functions and subroutines.
-  - Changed delivery logic such that the player is now required to select the appropriate material before pressing the `Deliver` hotkey.
-    - This is because the order of the menu options depends on system state and the state material in the ship's inventory. Getting this wrong could result in buying a quota of unwanted material.
+  - Added AssumeFirstDeliveryOption variable and documentation. See <a href='#assumefirstdeliveryoption'>AssumeFirstDeliveryOption</a for details.
 
 # Notes
 - [Original script](https://pastebin.com/9MFvm8ek) by CMDR Oraki/Sulandir
