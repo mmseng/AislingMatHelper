@@ -207,7 +207,7 @@ JumpDeliver:
 
 ; --------------------------------------
 
-; Quick exit option in case something goes horribly wrong.
+; Quick exit option in case something goes horribly wrong
 JumpKill:
 	; Make sure all virtually-pressed keys are released
 	send {%KeyDown% up}
