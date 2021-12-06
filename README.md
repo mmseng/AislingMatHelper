@@ -24,7 +24,7 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 1. Download <a href='https://raw.githubusercontent.com/mmseng/AislingMatHelper/main/AislingMatHelper.ahk'>AislingMatHelper.ahk</a> (right click the link and select `Save link as...`).
 2. Open it using a text editor.
 3. Configure the variables near the top. See the <a href='#important-variables'>Variables</a> documented below.
-4. Run the script.
+4. Run the script. While the script is running you should see the Autohotkey icon in your system tray (white "H" on green background).
 
 ### Use in game
 1. Dock at a station and open the Power Contact menu.
