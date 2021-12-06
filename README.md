@@ -31,14 +31,18 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 2. If you have a salary to claim, claim it and reopen the Power Contact menu, to remove that menu option.
 3. Make sure the top button is selected (i.e. `FULL SYSTEM STATISTICS`).
 4. Make sure your mouse cursor is away from any buttons, as it can interfere.
-5. Don't move your mouse or press any keys while the script takes control of your inputs. Once it's done you can continue playing as usual.
+5a. To buy:
+    - Press your configured `BuyOneQuota` (default `F1`) or `BuyAllQuotas` (default `F2`) hotkey.
+5b. To deliver:
+    - Highlight the material you want to deliver.
+    - Press your configured `Deliver` hotkey (default `F3`).
+6. Don't move your mouse or press any keys while the script takes control of your inputs. Once it's done you can continue playing as usual.
 
 #### Buying
-6. Press your configured `BuyOneQuota` (default `F1`) or `BuyAllQuotas` (default `F2`) hotkey.
+
 
 #### Delivering
-6. Highlight the material you want to deliver.
-7. Press your configured `Deliver` hotkey (default `F3`).
+
 
 ### Usage notes
 - If the timings aren't quite right for your specific rig, see the <a href='#timing-variables'>Timing Variables</a> section below. The timings were mostly tested in Horizons. The script works in Odyssey, but the timings may need some minor tweaking.
@@ -173,7 +177,7 @@ Default is `51`.
 Script was last updated on 2021-12-05 with the following improvements:
   - Added code to correct for an inconsistency in the menu navigation in Odyssey.
     - When returning to the Power Contact screen from buying/loading prep mats, Odyssey highlights the "FAST TRACK..." button for prep mats again, rather than the "FULL SYSTEM STATISTICS" button. This is only the case for buying prep mats in Odyssey. Horizons, and buying fort mats in either version, is unaffected.
-	- To account for this, a new important variable was added (`GameVersion`).
+    - To account for this, a new important variable was added (`GameVersion`).
   - Tested timings and updated so that the default timings work in both Horizons and Odyssey (based on my testing with a decent computer).
   - Simplified and de-duplicated some logic by making use of functions and subroutines.
   - Changed delivery logic such that the player is now required to select the appropriate material before pressing the `Deliver` hotkey.
