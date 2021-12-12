@@ -17,7 +17,7 @@ SetKeyDelay, 50, 50
 ; Information
 ; ===========================================================
 
-; Script version: 1.1 (2021-12-05)
+; Script version: 1.2 (2021-12-12)
 ; See full script documentation at: https://github.com/mmseng/AislingMatHelper
 
 ; Script originally by CMDR Suladir.
@@ -33,10 +33,10 @@ SetKeyDelay, 50, 50
 ; ===========================================================
 
 ; Important variables
-GameVersion = 1 ; 1 = Horizons, 2 = Odyssey
+GameVersion = 2 ; 1 = Horizons, 2 = Odyssey
 Rating = 5 ; Your current pledge rating
-CargoCapacity = 700 ; Should be a multiple of your quota
-MaterialType = 2 ; 1 = prep mats, 2 = fort mats
+CargoCapacity = 650 ; Should be a multiple of your quota
+MaterialType = 3 ; 1 = prep mats, 2 = fort mats, 3 = expansion mats
 
 ; Hotkey variables
 BuyOneQuota = F1 ; Purchase a single full quota
@@ -84,6 +84,9 @@ switch Rating {
 	case 3: Quota = 20
 	case 4: Quota = 25
 	case 5: Quota = 50
+	Default:
+		MsgBox Rating variable not set correctly!
+		Goto JumpKill
 }
 
 ; Increase delay if the script confirms before loading all mats
@@ -139,7 +142,17 @@ HighlightFSS:
 ; Move down to desired material
 
 HighlightMat:
-	Loop %MaterialType% {
+	GoDownX = 0
+	switch MaterialType {
+		case 1: GoDownX = 1
+		case 2: GoDownX = 2
+		case 3: GoDownX = 1
+		Default:
+			MsgBox MaterialType variable is not set correctly!
+			Goto JumpKill
+	}
+
+	Loop %GoDownX% {
 		send {%KeyDown%}
 	}
 	Return
@@ -209,11 +222,15 @@ JumpDeliver:
 		send {%KeyDown%}
 	}
 	
-	; Unload
-	send {%KeyRight% down}
-	sleep %DelayDeliver%
-	send {%KeyRight% up}
-
+	; For some reason expansion mats just provide a single button to deliver all mats
+	; Why tf isn't this the case for other materials?
+	if(MaterialType != 3) {
+		; Unload
+		send {%KeyRight% down}
+		sleep %DelayDeliver%
+		send {%KeyRight% up}
+	}
+	
 	; Confirm
 	send {%KeySelect%}
 

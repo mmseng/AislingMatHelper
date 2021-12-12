@@ -181,17 +181,26 @@ Testing shows that an acceptable value is something around 50-60ms per ton deliv
 Default is `51`.  
 <br />
 
-# Last updated
-Script was last updated on 2021-12-05 with the following improvements:
-  - Added code to correct for an inconsistency in the menu navigation in Odyssey.
-    - When returning to the Power Contact screen from buying/loading prep mats, Odyssey highlights the "FAST TRACK..." button for prep mats again, rather than the "FULL SYSTEM STATISTICS" button, as with every other such interaction. This is only the case for buying prep mats in Odyssey. Horizons, and buying fort mats in either version, is unaffected.
-    - To account for this, a new important variable was added (`GameVersion`).
-  - Tested timings and updated so that the default timings work in both Horizons and Odyssey (based on my testing with a decent computer).
-  - Simplified and de-duplicated some logic by making use of functions and subroutines.
-  - Added AssumeFirstDeliveryOption variable and documentation. See <a href='#assumefirstdeliveryoption'>AssumeFirstDeliveryOption</a> for details.
+# Changelog
+
+### Latest: v1.2 (2021-12-12)
+- Tweaks to support purchase and delivery of expansion materials.
+
+### v1.1 (2021-12-05)
+- Added code to correct for an inconsistency in the menu navigation in Odyssey.
+  - When returning to the Power Contact screen from buying/loading prep mats, Odyssey highlights the "FAST TRACK..." button for prep mats again, rather than the "FULL SYSTEM STATISTICS" button, as with every other such interaction. This is only the case for buying prep mats in Odyssey. Horizons, and buying fort mats in either version, is unaffected.
+  - To account for this, a new important variable was added (`GameVersion`).
+- Tested timings and updated so that the default timings work in both Horizons and Odyssey (based on my testing with a decent computer).
+- Simplified and de-duplicated some logic by making use of functions and subroutines.
+- Added AssumeFirstDeliveryOption variable and documentation. See <a href='#assumefirstdeliveryoption'>AssumeFirstDeliveryOption</a> for details.
+
+### v1.0 (pre-2021-12-05)
+- Changes were not tracked before v1.1.
+<br />
 
 # Notes
 - If you discover an issue, have suggestions or questions, please feel free to open an <a href='https://github.com/mmseng/AislingMatHelper/issues'>Issue</a>.
 - [Original script](https://pastebin.com/9MFvm8ek) by CMDR Oraki/Sulandir
 - Overhauled for ease of use and flexibility by CMDR Roachy1
+- Ignore `AislingMatHelper-beta.ahk`. I use this to test changes before making them live in `AislingMatHelper.ahk`.
 - For the Princess!
