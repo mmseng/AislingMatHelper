@@ -216,7 +216,7 @@ Default is `100`.
 ### Latest: v1.2 (2021-12-12)
 - Tweaks to support purchase and delivery of expansion materials.
 - Added missing key-release contingency for "up" navigation key for when the script is killed while performing actions.
-- Added optional beep feedback for when hotkeys are pressed and when the script completes.
+- Added optional beep feedback for when hotkeys are pressed and when the script completes an action.
 
 ### v1.1 (2021-12-05)
 - Added code to correct for an inconsistency in the menu navigation in Odyssey.
