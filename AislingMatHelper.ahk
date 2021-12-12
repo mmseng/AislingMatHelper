@@ -17,7 +17,7 @@ SetKeyDelay, 50, 50
 ; Information
 ; ===========================================================
 
-; Script version: 1.1 (2021-12-05)
+; Script version: 1.2 (2021-12-12)
 ; See full script documentation at: https://github.com/mmseng/AislingMatHelper
 
 ; Script originally by CMDR Suladir.
@@ -33,10 +33,10 @@ SetKeyDelay, 50, 50
 ; ===========================================================
 
 ; Important variables
-GameVersion = 1 ; 1 = Horizons, 2 = Odyssey
+GameVersion = 2 ; 1 = Horizons, 2 = Odyssey
 Rating = 5 ; Your current pledge rating
 CargoCapacity = 700 ; Should be a multiple of your quota
-MaterialType = 2 ; 1 = prep mats, 2 = fort mats
+MaterialType = 2 ; 1 = prep mats, 2 = fort mats, 3 = expansion mats
 
 ; Hotkey variables
 BuyOneQuota = F1 ; Purchase a single full quota
@@ -49,6 +49,13 @@ KeyUp = w
 KeyDown = s
 KeyRight = d
 KeySelect = Space
+
+; Audible feedback variables
+EnableBeeps = True ; True = enable beeps to provide audible feedback when you press a hotkey, False = disable beeps
+HighBeep = 2000 ; Frequency
+MidBeep = 1500 ; Frequency
+LowBeep = 1000 ; Frequency
+BeepLength = 100 ; Milliseconds
 
 ; This variable determines whether, when pressing the `Deliver` hotkey, the script immediately begins unloading, or whether it navigates down one menu option first and then unloads.
 ; 0 = unload immediately. Player is required to highlight the delivery option before hitting the Deliver hotkey. Adds a manual keystroke in exchange for guarantee that the wrong menu option is not selected.
@@ -84,6 +91,9 @@ switch Rating {
 	case 3: Quota = 20
 	case 4: Quota = 25
 	case 5: Quota = 50
+	Default:
+		MsgBox Rating variable not set correctly!
+		Goto JumpKill
 }
 
 ; Increase delay if the script confirms before loading all mats
@@ -119,7 +129,9 @@ Hotkey, %Kill%, JumpKill
 ; End script until hotkey is pressed
 Return
 
-; --------------------------------------
+; ===========================================================
+; Subroutines and functions
+; ===========================================================
 
 ; When returned to the Power Contact screen, highlight the "FULL SYSTEM STATISTICS" button.
 ; Necessary because this behavior differs between Horizons and Odyssey.
@@ -130,7 +142,7 @@ Return
 
 HighlightFSS:
 	if((GameVersion == 2) and (MaterialType == 1)) {
-		send {%KeyUp%}
+		Send {%KeyUp%}
 	}
 	Return
 
@@ -139,8 +151,18 @@ HighlightFSS:
 ; Move down to desired material
 
 HighlightMat:
-	Loop %MaterialType% {
-		send {%KeyDown%}
+	GoDownX = 0
+	switch MaterialType {
+		case 1: GoDownX = 1
+		case 2: GoDownX = 2
+		case 3: GoDownX = 1
+		Default:
+			MsgBox MaterialType variable is not set correctly!
+			Goto JumpKill
+	}
+
+	Loop %GoDownX% {
+		Send {%KeyDown%}
 	}
 	Return
 
@@ -150,23 +172,23 @@ HighlightMat:
 
 Buy:
 	; Fast track next quota if necessary and wait for UI change
-	send {%KeySelect%}
-	sleep %DelayFasttrack%
+	Send {%KeySelect%}
+	Sleep %DelayFasttrack%
 
 	; Collect
-	send {%KeyRight% down}
-	sleep %DelayLoad%
-	send {%KeyRight% up}
+	Send {%KeyRight% down}
+	Sleep %DelayLoad%
+	Send {%KeyRight% up}
 
 	; Click "CONFIRM"
-	send {%KeySelect%}
+	Send {%KeySelect%}
 	; Wait for "ACTION RESULTS" page to load
-	sleep %DelayConfirm%
+	Sleep %DelayConfirm%
 	; Click "BACK TO MAIN PAGE"
-	send {%KeySelect%}
+	Send {%KeySelect%}
 	
 	; Loop delay
-	sleep %DelayLoop%
+	Sleep %DelayLoop%
 
 	Return
 
@@ -188,47 +210,101 @@ BuyQuota(x) {
 
 ; --------------------------------------
 
+; Beep logic
+Beep(Action) {
+	global EnableBeeps
+	
+	if(EnableBeeps) {
+		global LowBeep
+		global MidBeep
+		global HighBeep
+		global BeepLength
+		
+		switch Action {
+			case "BuyOne":
+				SoundBeep, %LowBeep%, %BeepLength%
+				SoundBeep, %MidBeep%, %BeepLength%
+			case "BuyAll":
+				SoundBeep, %LowBeep%, %BeepLength%
+				SoundBeep, %MidBeep%, %BeepLength%
+				SoundBeep, %MidBeep%, %BeepLength%
+			case "Deliver":
+				SoundBeep, %MidBeep%, %BeepLength%
+				SoundBeep, %LowBeep%, %BeepLength%
+			case "Complete":
+				SoundBeep, %HighBeep%, %BeepLength%
+			case "Kill":
+				SoundBeep, %LowBeep%, %BeepLength%
+				SoundBeep, %LowBeep%, %BeepLength%
+				SoundBeep, %LowBeep%, %BeepLength%
+			Default:
+				MsgBox Invalid Action sent to Beep function!
+				ExitApp
+		}
+	}
+}
+
+; ===========================================================
+; Hotkey labels
+; ===========================================================
+
 ; Buy one full quota
 JumpBuyOneQuota:
+	Beep("BuyOne")
 	BuyQuota(1)
+	Beep("Complete")
 	Return
 
 ; --------------------------------------
 
 ; Buy enough quotas to fill configured cargo capacity
 JumpBuyAllQuotas:
+	Beep("BuyAll")
 	BuyQuota(BuyAllLoops)
+	Beep("Complete")
 	Return
 
 ; --------------------------------------
 
 ; Unload all
 JumpDeliver:
+	Beep("Deliver")
+
 	; Navigate down to the first delivery option, or don't, depending on AssumeFirstDeliveryOption.
 	if(AssumeFirstDeliveryOption == 1) {
-		send {%KeyDown%}
+		Send {%KeyDown%}
 	}
 	
-	; Unload
-	send {%KeyRight% down}
-	sleep %DelayDeliver%
-	send {%KeyRight% up}
-
+	; For some reason expansion mats just provide a single button to deliver all mats
+	; Why tf isn't this the case for other materials?
+	if(MaterialType != 3) {
+		; Unload
+		Send {%KeyRight% down}
+		Sleep %DelayDeliver%
+		Send {%KeyRight% up}
+	}
+	
 	; Confirm
-	send {%KeySelect%}
+	Send {%KeySelect%}
 
+	Beep("Complete")
 	Return
 
 ; --------------------------------------
 
 ; Quick exit option in case something goes horribly wrong
 JumpKill:
+	Beep("Kill")
+
 	; Make sure all virtually-pressed keys are released
-	send {%KeyDown% up}
-	send {%KeyRight% up}
-	send {%KeySelect% up}
+	Send {%KeyUp% up}
+	Send {%KeyDown% up}
+	Send {%KeyRight% up}
+	Send {%KeySelect% up}
 	
 	; Exit the script
 	ExitApp
 
+; ===========================================================
 ; EOF
+; ===========================================================

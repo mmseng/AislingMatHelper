@@ -76,8 +76,8 @@ For example if your rating is 5, and you have 704 cargo capacity, set this to 70
 Defines which material type to buy.  
 `1` = preperation materials (media materials).  
 `2` = fortification materials (programme materials).  
+`3` = expansion materials (sealed contracts).  
 Default is `2`.  
-Theoretically `3` could work for expansion materials (sealed contracts), but this is untested, and depends on various factors. Aisling powerplay generally revolves strictly around hauling fortification materials from Cubeo, so that is the primary purpose of this script.  
 <br />
 
 # Hotkey variables
@@ -181,13 +181,44 @@ Testing shows that an acceptable value is something around 50-60ms per ton deliv
 Default is `51`.  
 <br />
 
+# Audible feedback variables
+
+### EnableBeeps
+Whether or not to sound beeps to indicate when hotkeys are pressed and when the script completes its current action.  
+`True` or `False`.  
+Default is `True`.  
+Beeps are as follows:
+  - When `BuyOneQuota` hotkey is pressed: <LowBeep><MidBeep>
+  - When `BuyAllQuotas` hotkey is pressed: <LowBeep><MidBeep><MidBeep>
+  - When `Deliver` hotkey is pressed: <MidBeep><LowBeep>
+  - When current action is complete: <HighBeep>
+  - When `Kill` hotkey is pressed: <LowBeep><LowBeep><LowBeep>
+
+### LowBeep
+Frequency of the LowBeep.  
+Default is `1000`.  
+
+### MidBeep
+Frequency of the MidBeep.  
+Default is `1500`.  
+
+### HighBeep
+Frequency of the HighBeep.  
+Default is `2000`.  
+
+### BeepLength
+Length of beeps in milliseconds.  
+Default is `100`.  
+<br />
+
 # Changelog
 
-### Beta: v1.2 (2021-12-12)
+### Latest: v1.2 (2021-12-12)
 - Tweaks to support purchase and delivery of expansion materials.
 - Added missing key-release contingency for "up" navigation key for when the script is killed while performing actions.
+- Added optional beep feedback for when hotkeys are pressed and when the script completes.
 
-### Latest: v1.1 (2021-12-05)
+### v1.1 (2021-12-05)
 - Added code to correct for an inconsistency in the menu navigation in Odyssey.
   - When returning to the Power Contact screen from buying/loading prep mats, Odyssey highlights the "FAST TRACK..." button for prep mats again, rather than the "FULL SYSTEM STATISTICS" button, as with every other such interaction. This is only the case for buying prep mats in Odyssey. Horizons, and buying fort mats in either version, is unaffected.
   - To facilitate this, a new important variable was added (`GameVersion`).
@@ -203,5 +234,5 @@ Default is `51`.
 - If you discover an issue, have suggestions or questions, please feel free to open an <a href='https://github.com/mmseng/AislingMatHelper/issues'>Issue</a>.
 - [Original script](https://pastebin.com/9MFvm8ek) by CMDR Oraki/Sulandir
 - Overhauled for ease of use and flexibility by CMDR Roachy1
-- Ignore `AislingMatHelper-beta.ahk` and `test.ahk`. I use these to test changes before making them live in `AislingMatHelper.ahk`.
+- You can ignore `AislingMatHelper-beta.ahk`. I use this to test changes before making them live in `AislingMatHelper.ahk`.
 - For the Princess!
