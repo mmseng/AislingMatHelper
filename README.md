@@ -189,7 +189,7 @@ Default is `51`.
 ### Latest: v1.1 (2021-12-05)
 - Added code to correct for an inconsistency in the menu navigation in Odyssey.
   - When returning to the Power Contact screen from buying/loading prep mats, Odyssey highlights the "FAST TRACK..." button for prep mats again, rather than the "FULL SYSTEM STATISTICS" button, as with every other such interaction. This is only the case for buying prep mats in Odyssey. Horizons, and buying fort mats in either version, is unaffected.
-  - To account for this, a new important variable was added (`GameVersion`).
+  - To facilitate this, a new important variable was added (`GameVersion`).
 - Tested timings and updated so that the default timings work in both Horizons and Odyssey (based on my testing with a decent computer).
 - Simplified and de-duplicated some logic by making use of functions and subroutines.
 - Added AssumeFirstDeliveryOption variable and documentation. See <a href='#assumefirstdeliveryoption'>AssumeFirstDeliveryOption</a> for details.
