@@ -188,11 +188,11 @@ Whether or not to sound beeps to indicate when hotkeys are pressed and when the 
 `True` or `False`.  
 Default is `True`.  
 Beeps are as follows:
-  - When `BuyOneQuota` hotkey is pressed: <LowBeep><MidBeep>
-  - When `BuyAllQuotas` hotkey is pressed: <LowBeep><MidBeep><MidBeep>
-  - When `Deliver` hotkey is pressed: <MidBeep><LowBeep>
-  - When current action is complete: <HighBeep>
-  - When `Kill` hotkey is pressed: <LowBeep><LowBeep><LowBeep>
+  - When `BuyOneQuota` hotkey is pressed: \<LowBeep\>\<MidBeep\>
+  - When `BuyAllQuotas` hotkey is pressed: \<LowBeep\>\<MidBeep\>\<MidBeep\>
+  - When `Deliver` hotkey is pressed: \<MidBeep\>\<LowBeep\>
+  - When current action is complete: \<HighBeep\>
+  - When `Kill` hotkey is pressed: \<LowBeep\>\<LowBeep\>\<LowBeep\>
 
 ### LowBeep
 Frequency of the LowBeep.  
