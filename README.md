@@ -185,6 +185,7 @@ Default is `51`.
 
 ### Beta: v1.2 (2021-12-12)
 - Tweaks to support purchase and delivery of expansion materials.
+- Added missing key-release contingency for "up" navigation key for when the script is killed while performing actions.
 
 ### Latest: v1.1 (2021-12-05)
 - Added code to correct for an inconsistency in the menu navigation in Odyssey.
@@ -202,5 +203,5 @@ Default is `51`.
 - If you discover an issue, have suggestions or questions, please feel free to open an <a href='https://github.com/mmseng/AislingMatHelper/issues'>Issue</a>.
 - [Original script](https://pastebin.com/9MFvm8ek) by CMDR Oraki/Sulandir
 - Overhauled for ease of use and flexibility by CMDR Roachy1
-- Ignore `AislingMatHelper-beta.ahk`. I use this to test changes before making them live in `AislingMatHelper.ahk`.
+- Ignore `AislingMatHelper-beta.ahk` and `test.ahk`. I use these to test changes before making them live in `AislingMatHelper.ahk`.
 - For the Princess!
