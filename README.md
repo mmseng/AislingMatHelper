@@ -1,7 +1,7 @@
 # Summary
 This is an Autohotkey (AHK) script which helps to automate tedious keystrokes in Elite Dangerous.  
 
-Specifically, this was designed for players pledged to the Aisling Duval power, to automate the keystrokes required to purchase and load preparation and fortification materials, and deliver these materials.  
+Specifically, this was designed for players pledged to the Aisling Duval power, to automate the keystrokes required to purchase, load, and deliver powerplay materials.  
 
 This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CMDR Oraki/Sulandir. This updated script features complete modularization of all hard-coded aspects into easy-to-use variables, full documentation (below), and fully commented code.  
 
