@@ -33,7 +33,7 @@ SetKeyDelay, 50, 50
 ; ===========================================================
 
 ; Important variables
-GameVersion = 2 ; 1 = Horizons, 2 = Odyssey
+GameVersion = 1 ; 1 = Horizons, 2 = Odyssey
 Rating = 5 ; Your current pledge rating
 CargoCapacity = 700 ; Should be a multiple of your quota
 MaterialType = 2 ; 1 = prep mats, 2 = fort mats, 3 = expansion mats
