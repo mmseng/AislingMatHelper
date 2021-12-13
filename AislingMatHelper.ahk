@@ -17,7 +17,7 @@ SetKeyDelay, 50, 50
 ; Information
 ; ===========================================================
 
-; Script version: 1.2 (2021-12-12)
+; Script version: 1.3 (2021-12-13)
 ; See full script documentation at: https://github.com/mmseng/AislingMatHelper
 
 ; Script originally by CMDR Suladir.
@@ -303,7 +303,11 @@ JumpKill:
 	Send {%KeySelect% up}
 	
 	; Exit the script
-	ExitApp
+	;ExitApp
+	
+	; Reload the script instead, so we don't have to manually relaunch it
+	; https://www.autohotkey.com/boards/viewtopic.php?f=76&t=97746&p=434107#p434107
+	Reload
 
 ; ===========================================================
 ; EOF
