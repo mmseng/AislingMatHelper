@@ -129,6 +129,8 @@ Hotkey, %Kill%, JumpKill
 ; End script until hotkey is pressed
 Return
 
+
+
 ; ===========================================================
 ; Subroutines and functions
 ; ===========================================================
@@ -244,6 +246,8 @@ Beep(Action) {
 	}
 }
 
+
+
 ; ===========================================================
 ; Hotkey labels
 ; ===========================================================
@@ -308,6 +312,8 @@ JumpKill:
 	; Reload the script instead, so we don't have to manually relaunch it
 	; https://www.autohotkey.com/boards/viewtopic.php?f=76&t=97746&p=434107#p434107
 	Reload
+
+
 
 ; ===========================================================
 ; EOF
