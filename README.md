@@ -208,19 +208,19 @@ Beeps are as follows:
   - When `Kill` hotkey is pressed: `<LowBeep><LowBeep><LowBeep>`
 
 ### LowBeep
-Frequency of the LowBeep.  
+Frequency (in Hz) of the LowBeep.  
 Default is `1000`.  
 
 ### MidBeep
-Frequency of the MidBeep.  
+Frequency (in Hz) of the MidBeep.  
 Default is `1500`.  
 
 ### HighBeep
-Frequency of the HighBeep.  
+Frequency (in Hz) of the HighBeep.  
 Default is `2000`.  
 
 ### BeepLength
-Length of beeps in milliseconds.  
+Length (in milliseconds) of beeps.  
 Default is `100`.  
 <br />
 
