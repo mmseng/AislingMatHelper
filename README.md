@@ -10,6 +10,19 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 	o7<br />
 	== CMDR Roachy1
 </p>
+
+Table of contents:  
+  - [Pre-reqs](#pre-requisites)
+  - [Usage](#usage)
+  - Variables
+    - [Important variables](#important-variables)
+    - [Hotkey variables](#hotkey-variables)
+    - [Menu navigation variables](#menu-navigation-variables)
+    - [Timing variables](#timing-variables)
+    - [Audible feedback variables](#audible-feedback-variables)
+  - [Changelog](#changelog)
+  - [Notes](#notes)
+
 <br />
 
 # Pre-requisites
