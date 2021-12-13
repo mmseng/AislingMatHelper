@@ -11,7 +11,7 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 	== CMDR Roachy1
 </p>
 
-Table of contents:  
+### Table of contents
   - [Pre-reqs](#pre-requisites)
   - [Usage](#usage)
   - [Important variables](#important-variables)
