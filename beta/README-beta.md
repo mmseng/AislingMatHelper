@@ -213,12 +213,12 @@ Whether or not to sound beeps to indicate when hotkeys are pressed and when the 
 Default is `True`.  
 Beeps are as follows:
   - When script is loaded, has finished initial processing, and is awaiting hotkeys to be pressed: `HighBeep`
-  - When `BuyOneQuota` hotkey is pressed: `LowBeep``MidBeep`
-  - When `BuyAllQuotas` hotkey is pressed: `LowBeep``MidBeep``MidBeep`
-  - When `Deliver` hotkey is pressed: `MidBeep``LowBeep`
+  - When `BuyOneQuota` hotkey is pressed: `LowBeep` `MidBeep`
+  - When `BuyAllQuotas` hotkey is pressed: `LowBeep` `MidBeep` `MidBeep`
+  - When `Deliver` hotkey is pressed: `MidBeep` `LowBeep`
   - When current action is complete: `HighBeep`
-  - When `ReloadKey` hotkey is pressed: `LowBeep``MidBeep``LowBeep`
-  - When `Kill` hotkey is pressed: `LowBeep``LowBeep``LowBeep`
+  - When `ReloadKey` hotkey is pressed: `LowBeep` `MidBeep` `LowBeep`
+  - When `Kill` hotkey is pressed: `LowBeep` `LowBeep` `LowBeep`
 
 ### LowBeep
 Frequency (in Hz) of the LowBeep.  
