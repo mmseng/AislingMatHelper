@@ -49,7 +49,7 @@ This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CM
 ### Usage notes
 - If the timings aren't quite right for your specific rig, see the <a href='#timing-variables'>Timing Variables</a> section below.
 - If you find that your `Deliver` hotkey isn't selecting the right menu option, see <a href='#assumefirstdeliveryoption'>AssumeFirstDeliveryOption</a> below.
-- If you get sidetracked like I always do and end up clicking out of game or otherwise interfering with the script's inputs, use the `Kill` hotkey (default `F4`) to kill and reload the script.
+- If you get sidetracked like I always do and end up clicking out of game or otherwise interfering with the script's inputs, use the `ReloadKey` hotkey (default `F4`) to kill and reload the script.
 - You may wish to create multiple copies of the script with different variable values for different purposes. For example, you could have one copy for fortifying at rating 1 with cargo capacity of 300 in Horizons, and one copy for prepping at rating 5 with cargo capacity of 700 in Odyssey.
 - For repeated editing of the script I recommend using <a href='https://notepad-plus-plus.org/'>Notepad++</a> and installing the <a href='https://stackoverflow.com/questions/45466733/autohotkey-syntax-highlighting-in-notepad'>AHK language definition</a> for syntax highlighting.
 <br />
@@ -115,11 +115,17 @@ Default is `F3`.
 i.e. This just selects the first delivery option and holds the right arrow for roughly as long as it should take to deliver your whole payload before confirming.  
 Also see: <a href='#assumefirstdeliveryoption'>AssumeFirstDeliveryOption</a>.  
 
-### Kill
+### ReloadKey
 Kills the current instance of the script and reloads it.  
 Useful if things go wrong, like if you click outside the game window while the script is working, or the timings are off and the autoclicks are out of sync with the menu state.  
 Default is `F4`.  
-Script can be exited normally by right-clicking the system tray icon and selecting `Exit`.  
+Note: This is named `ReloadKey` because `Reload` is a key word in AHK language.  
+
+### Kill
+Kills the current instance of the script.  
+Useful to quickly exit the script when you're done playing.  
+Default is `Shift`+`F4`. By default, either shift key works.  
+Script can also be exited normally by right-clicking the system tray icon and selecting `Exit`.  
 <br />
 
 # Menu Navigation Variables
@@ -170,6 +176,17 @@ Default is `800`.
 Needed because the UI pauses briefly after clicking this, before allowing you to load materials.  
 This delay (and the button click) happen regardless of whether you actually need to click the button or not, because it doesn't hurt anything.  
 
+### DelayLoadItems
+The delay after pressing the right arrow key before releasing it, when loading materials.  
+The delay depends on the quota size, which depends on your `Rating`.  
+Testing shows that an acceptable value is something around 60-70ms per ton loaded.  
+Default is `60`.  
+
+### DelayLoadUnload
+The delay after loading/unloading all items before clicking the `CONFIRM` button.  
+Because clicking `CONFIRM` too quickly after loading can sometimes cause the "Power Contact not available" error.  
+Default is `200`.  
+
 ### DelayConfirm
 The delay after clicking the `CONFIRM` button after loading materials.  
 Default is `1000`.  
@@ -181,16 +198,10 @@ Default is `200`.
 Needed because the UI pauses briefly before returning to the Power Contact screen.  
 Only applies to the `BuyAllQuotas` action.  
 
-### DelayLoad
-The delay after pressing the right arrow key before releasing it, when loading materials.  
-The delay depends on the quota size, which depends on your `Rating`.  
-Testing shows that an acceptable value is something around 60-70ms per ton loaded.  
-Default is `60`.  
-
-### DelayDeliver
-The delay after pressing the "right" key before releasing it, when delivering materials.  
+### DelayUnloadItems
+The delay after pressing the "right" key before releasing it, when unloading materials.  
 The delay depends on your `CargoCapacity`.  
-Testing shows that an acceptable value is something around 50-60ms per ton delivered.  
+Testing shows that an acceptable value is something around 50-60ms per ton unloaded.  
 Default is `51`.  
 <br />
 
@@ -201,11 +212,13 @@ Whether or not to sound beeps to indicate when hotkeys are pressed and when the 
 `True` or `False`.  
 Default is `True`.  
 Beeps are as follows:
-  - When `BuyOneQuota` hotkey is pressed: `<LowBeep><MidBeep>`
-  - When `BuyAllQuotas` hotkey is pressed: `<LowBeep><MidBeep><MidBeep>`
-  - When `Deliver` hotkey is pressed: `<MidBeep><LowBeep>`
-  - When current action is complete: `<HighBeep>`
-  - When `Kill` hotkey is pressed: `<LowBeep><LowBeep><LowBeep>`
+  - When script is loaded, has finished initial processing, and is awaiting hotkeys to be pressed: `HighBeep`
+  - When `BuyOneQuota` hotkey is pressed: `LowBeep``MidBeep`
+  - When `BuyAllQuotas` hotkey is pressed: `LowBeep``MidBeep``MidBeep`
+  - When `Deliver` hotkey is pressed: `MidBeep``LowBeep`
+  - When current action is complete: `HighBeep`
+  - When `ReloadKey` hotkey is pressed: `LowBeep``MidBeep``LowBeep`
+  - When `Kill` hotkey is pressed: `LowBeep``LowBeep``LowBeep`
 
 ### LowBeep
 Frequency (in Hz) of the LowBeep.  
@@ -226,7 +239,14 @@ Default is `100`.
 
 # Changelog
 
-### Latest: v1.3 (2021-12-13)
+### Latest: v1.4 (2021-12-29)
+- Renamed the `Kill` hotkey to `ReloadKey`, and added a new `Kill` hotkey for actually exiting the script. See <a href='#reloadkey'>ReloadKey</a> and <a href='#kill'>Kill</a>.
+- Added configurable delay between loading/unloading mats and clicking the `CONFIRM` button, to address an issue where the clicking the `CONFIRM` button too quickly causes the game itself to get confused. See <a href='#delayload'>DelayLoadUnload</a>.
+  - Original `DelayLoad` variable renamed to `DelayLoadItems`.
+  - Original `DelayDeliver` variable renamed to `DelayUnloadItems`.
+- Added initial HighBeep when script is loaded to signal when initial processing is finished, and the script is awaiting hotkeys to be pressed.
+
+### v1.3 (2021-12-13)
 - Changed the `Kill` hotkey so that it kills the current instance of the script and reloads it, instead of just killing it entirely. Script can still be exited normally by right-clicking the system tray icon and selecting `Exit`.
 
 ### v1.2 (2021-12-12)
@@ -240,7 +260,7 @@ Default is `100`.
   - To facilitate this, a new important variable was added (`GameVersion`).
 - Tested timings and updated so that the default timings work in both Horizons and Odyssey (based on my testing with a decent computer).
 - Simplified and de-duplicated some logic by making use of functions and subroutines.
-- Added AssumeFirstDeliveryOption variable and documentation. See <a href='#assumefirstdeliveryoption'>AssumeFirstDeliveryOption</a> for details.
+- Added AssumeFirstDeliveryOption variable and documentation. See <a href='#assumefirstdeliveryoption'>AssumeFirstDeliveryOption</a>.
 
 ### v1.0 (pre-2021-12-05)
 - Changes were not tracked before v1.1.

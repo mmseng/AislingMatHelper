@@ -17,7 +17,7 @@ SetKeyDelay, 50, 50
 ; Information
 ; ===========================================================
 
-; Script version: 1.3 (2021-12-13)
+; Script version: 1.4 (2021-12-29)
 ; See full script documentation at: https://github.com/mmseng/AislingMatHelper
 
 ; Script originally by CMDR Suladir.
@@ -39,10 +39,14 @@ CargoCapacity = 700 ; Should be a multiple of your quota
 MaterialType = 2 ; 1 = prep mats, 2 = fort mats, 3 = expansion mats
 
 ; Hotkey variables
+; See these docs for the syntax for other keys and key modifiers (such as Ctrl):
+; - https://www.autohotkey.com/docs/Hotkeys.htm
+; - https://www.autohotkey.com/docs/KeyList.htm
 BuyOneQuota = F1 ; Purchase a single full quota
 BuyAllQuotas = F2 ; Purchase as many quotas as will fit your configured cargo space
 Deliver = F3 ; Deliver all materials
-Kill = F4 ; Kill script (useful if things go wrong)
+ReloadKey = F4 ; Kill and reload script (useful if things go wrong)
+Kill = +F4 ; Kill script entirely (useful for when you're done playing)
 
 ; Menu navigation variables
 KeyUp = w
@@ -75,7 +79,10 @@ AssumeFirstDeliveryOption = 1
 ; Delay after clicking "FAST TRACK NEXT QUOTA FOR X CR." button
 DelayFasttrack = 800
 
-; Delay after clicking "CONFIRM" (when buying mats)
+; Delay after loading all items and before clicking "CONFIRM"
+DelayLoadUnload = 200
+
+; Delay after clicking "CONFIRM"
 DelayConfirm = 1000
 
 ; Delay after clicking "BACK TO MAIN PAGE" on the "ACTION RESULTS" page
@@ -100,14 +107,14 @@ switch Rating {
 ; Decrease delay if the script waits for a while before confirming after loading all mats
 ; ~60ms per ton is optimal in my testing
 ; ~70ms per ton to be safe
-DelayLoad := Quota * 60
+DelayLoadItems := Quota * 60
 
-; Delay when delivering
-; Defines how long to hold "right" when delivering mats
+; Delay when unloading
+; Defines how long to hold "right" when unloading mats
 ; Based on cargo capacity
 ; ~51ms per ton is optimal in my testing
 ; ~55ms per ton to be safe
-DelayDeliver := CargoCapacity * 51
+DelayUnloadItems := CargoCapacity * 51
 
 
 
@@ -124,7 +131,11 @@ BuyAllLoops := Ceil(CargoCapacity / Quota)
 Hotkey, %BuyOneQuota%, JumpBuyOneQuota
 Hotkey, %BuyAllQuotas%, JumpBuyAllQuotas
 Hotkey, %Deliver%, JumpDeliver
+Hotkey, %ReloadKey%, JumpReload
 Hotkey, %Kill%, JumpKill
+
+; Beep to signal that initial processing is done and the script is awaiting hotkeys to be pressed
+SoundBeep, %HighBeep%, %BeepLength%
 
 ; End script until hotkey is pressed
 Return
@@ -179,7 +190,7 @@ Buy:
 
 	; Collect
 	Send {%KeyRight% down}
-	Sleep %DelayLoad%
+	Sleep %DelayLoadItems%
 	Send {%KeyRight% up}
 
 	; Click "CONFIRM"
@@ -208,6 +219,9 @@ BuyQuota(x) {
 		; Move up to "FULL SYSTEM STATISTICS" button again
 		Gosub HighlightFSS
 	}
+	
+	; Delay before clicking "CONFIRM", because clicking it too quickly sometimes causes the "Power Contact not available" error.
+	Sleep %DelayLoadUnload%
 }
 
 ; --------------------------------------
@@ -235,6 +249,10 @@ Beep(Action) {
 				SoundBeep, %LowBeep%, %BeepLength%
 			case "Complete":
 				SoundBeep, %HighBeep%, %BeepLength%
+			case "Reload":
+				SoundBeep, %LowBeep%, %BeepLength%
+				SoundBeep, %MidBeep%, %BeepLength%
+				SoundBeep, %LowBeep%, %BeepLength%
 			case "Kill":
 				SoundBeep, %LowBeep%, %BeepLength%
 				SoundBeep, %LowBeep%, %BeepLength%
@@ -246,7 +264,15 @@ Beep(Action) {
 	}
 }
 
+; --------------------------------------
 
+; Release any keys that might be virtually depressed, in preparation for reloading or killing
+Release:
+	Send {%KeyUp% up}
+	Send {%KeyDown% up}
+	Send {%KeyRight% up}
+	Send {%KeySelect% up}
+	Return
 
 ; ===========================================================
 ; Hotkey labels
@@ -284,9 +310,12 @@ JumpDeliver:
 	if(MaterialType != 3) {
 		; Unload
 		Send {%KeyRight% down}
-		Sleep %DelayDeliver%
+		Sleep %DelayUnloadItems%
 		Send {%KeyRight% up}
 	}
+	
+	; Delay before clicking "CONFIRM", because clicking it too quickly sometimes causes the "Power Contact not available" error.
+	Sleep %DelayLoadUnload%
 	
 	; Confirm
 	Send {%KeySelect%}
@@ -297,23 +326,36 @@ JumpDeliver:
 ; --------------------------------------
 
 ; Quick exit option in case something goes horribly wrong
-JumpKill:
-	Beep("Kill")
+JumpReload:
+	Beep("Reload")
 
 	; Make sure all virtually-pressed keys are released
-	Send {%KeyUp% up}
-	Send {%KeyDown% up}
-	Send {%KeyRight% up}
-	Send {%KeySelect% up}
-	
-	; Exit the script
-	;ExitApp
+	GoSub Release
+					
+					 
+					  
+ 
+				  
+		 
 	
 	; Reload the script instead, so we don't have to manually relaunch it
 	; https://www.autohotkey.com/boards/viewtopic.php?f=76&t=97746&p=434107#p434107
 	Reload
+	
+	; To prevent anything below this from running before the script is finished being killed and reloaded
+	Return
 
+; --------------------------------------
 
+; Quick exit option in case something goes horribly wrong
+JumpKill:
+	Beep("Kill")
+
+	; Make sure all virtually-pressed keys are released
+	GoSub Release
+	
+	; Exit the script
+	ExitApp
 
 ; ===========================================================
 ; EOF

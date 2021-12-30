@@ -17,7 +17,7 @@ SetKeyDelay, 50, 50
 ; Information
 ; ===========================================================
 
-; Script version: 1.4 (2021-12-29)
+; Script version: 1.5 (Date TBD)
 ; See full script documentation at: https://github.com/mmseng/AislingMatHelper
 
 ; Script originally by CMDR Suladir.
@@ -39,11 +39,14 @@ CargoCapacity = 700 ; Should be a multiple of your quota
 MaterialType = 2 ; 1 = prep mats, 2 = fort mats, 3 = expansion mats
 
 ; Hotkey variables
+; See these docs for the syntax for other keys and key modifiers (such as Ctrl):
+; - https://www.autohotkey.com/docs/Hotkeys.htm
+; - https://www.autohotkey.com/docs/KeyList.htm
 BuyOneQuota = F1 ; Purchase a single full quota
 BuyAllQuotas = F2 ; Purchase as many quotas as will fit your configured cargo space
 Deliver = F3 ; Deliver all materials
 ReloadKey = F4 ; Kill and reload script (useful if things go wrong)
-Kill = F5 ; Kill script entirely (useful for when you're done playing)
+Kill = +F4 ; Kill script entirely (useful for when you're done playing)
 
 ; Menu navigation variables
 KeyUp = w
@@ -77,7 +80,7 @@ AssumeFirstDeliveryOption = 1
 DelayFasttrack = 800
 
 ; Delay after loading all items and before clicking "CONFIRM"
-DelayLoad = 200
+DelayLoadUnload = 200
 
 ; Delay after clicking "CONFIRM"
 DelayConfirm = 1000
@@ -104,14 +107,14 @@ switch Rating {
 ; Decrease delay if the script waits for a while before confirming after loading all mats
 ; ~60ms per ton is optimal in my testing
 ; ~70ms per ton to be safe
-DelayLoadItem := Quota * 60
+DelayLoadItems := Quota * 60
 
-; Delay when delivering
-; Defines how long to hold "right" when delivering mats
+; Delay when unloading
+; Defines how long to hold "right" when unloading mats
 ; Based on cargo capacity
 ; ~51ms per ton is optimal in my testing
 ; ~55ms per ton to be safe
-DelayDeliver := CargoCapacity * 51
+DelayUnloadItems := CargoCapacity * 51
 
 
 
@@ -130,6 +133,9 @@ Hotkey, %BuyAllQuotas%, JumpBuyAllQuotas
 Hotkey, %Deliver%, JumpDeliver
 Hotkey, %ReloadKey%, JumpReload
 Hotkey, %Kill%, JumpKill
+
+; Beep to signal that initial processing is done and the script is awaiting hotkeys to be pressed
+SoundBeep, %HighBeep%, %BeepLength%
 
 ; End script until hotkey is pressed
 Return
@@ -182,7 +188,7 @@ Buy:
 
 	; Collect
 	Send {%KeyRight% down}
-	Sleep %DelayLoadItem%
+	Sleep %DelayLoadItems%
 	Send {%KeyRight% up}
 
 	; Click "CONFIRM"
@@ -213,7 +219,7 @@ BuyQuota(x) {
 	}
 	
 	; Delay before clicking "CONFIRM", because clicking it too quickly sometimes causes the "Power Contact not available" error.
-	Sleep %DelayLoad%
+	Sleep %DelayLoadUnload%
 }
 
 ; --------------------------------------
@@ -302,9 +308,12 @@ JumpDeliver:
 	if(MaterialType != 3) {
 		; Unload
 		Send {%KeyRight% down}
-		Sleep %DelayDeliver%
+		Sleep %DelayUnloadItems%
 		Send {%KeyRight% up}
 	}
+	
+	; Delay before clicking "CONFIRM", because clicking it too quickly sometimes causes the "Power Contact not available" error.
+	Sleep %DelayLoadUnload%
 	
 	; Confirm
 	Send {%KeySelect%}
@@ -324,6 +333,9 @@ JumpReload:
 	; Reload the script instead, so we don't have to manually relaunch it
 	; https://www.autohotkey.com/boards/viewtopic.php?f=76&t=97746&p=434107#p434107
 	Reload
+	
+	; To prevent anything below this from running before the script is finished being killed and reloaded
+	Return
 
 ; --------------------------------------
 

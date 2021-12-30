@@ -124,7 +124,7 @@ Note: This is named `ReloadKey` because `Reload` is a key word in AHK language.
 ### Kill
 Kills the current instance of the script.  
 Useful to quickly exit the script when you're done playing.  
-Default is `F5`.  
+Default is `Shift`+`F4`. By default, either shift key works.  
 Script can also be exited normally by right-clicking the system tray icon and selecting `Exit`.  
 <br />
 
@@ -176,14 +176,14 @@ Default is `800`.
 Needed because the UI pauses briefly after clicking this, before allowing you to load materials.  
 This delay (and the button click) happen regardless of whether you actually need to click the button or not, because it doesn't hurt anything.  
 
-### DelayLoadItem
+### DelayLoadItems
 The delay after pressing the right arrow key before releasing it, when loading materials.  
 The delay depends on the quota size, which depends on your `Rating`.  
 Testing shows that an acceptable value is something around 60-70ms per ton loaded.  
 Default is `60`.  
 
-### DelayLoad
-The delay after loading all items before clicking the `CONFIRM` button.  
+### DelayLoadUnload
+The delay after loading/unloading all items before clicking the `CONFIRM` button.  
 Because clicking `CONFIRM` too quickly after loading can sometimes cause the "Power Contact not available" error.  
 Default is `200`.  
 
@@ -198,10 +198,10 @@ Default is `200`.
 Needed because the UI pauses briefly before returning to the Power Contact screen.  
 Only applies to the `BuyAllQuotas` action.  
 
-### DelayDeliver
-The delay after pressing the "right" key before releasing it, when delivering materials.  
+### DelayUnloadItems
+The delay after pressing the "right" key before releasing it, when unloading materials.  
 The delay depends on your `CargoCapacity`.  
-Testing shows that an acceptable value is something around 50-60ms per ton delivered.  
+Testing shows that an acceptable value is something around 50-60ms per ton unloaded.  
 Default is `51`.  
 <br />
 
@@ -212,12 +212,13 @@ Whether or not to sound beeps to indicate when hotkeys are pressed and when the 
 `True` or `False`.  
 Default is `True`.  
 Beeps are as follows:
-  - When `BuyOneQuota` hotkey is pressed: `<LowBeep><MidBeep>`
-  - When `BuyAllQuotas` hotkey is pressed: `<LowBeep><MidBeep><MidBeep>`
-  - When `Deliver` hotkey is pressed: `<MidBeep><LowBeep>`
-  - When current action is complete: `<HighBeep>`
-  - When `ReloadKey` hotkey is pressed: `<LowBeep><MidBeep><LowBeep>`
-  - When `Kill` hotkey is pressed: `<LowBeep><LowBeep><LowBeep>`
+  - When script is loaded, has finished initial processing, and is awaiting hotkeys to be pressed: `HighBeep`
+  - When `BuyOneQuota` hotkey is pressed: `LowBeep``MidBeep`
+  - When `BuyAllQuotas` hotkey is pressed: `LowBeep``MidBeep``MidBeep`
+  - When `Deliver` hotkey is pressed: `MidBeep``LowBeep`
+  - When current action is complete: `HighBeep`
+  - When `ReloadKey` hotkey is pressed: `LowBeep``MidBeep``LowBeep`
+  - When `Kill` hotkey is pressed: `LowBeep``LowBeep``LowBeep`
 
 ### LowBeep
 Frequency (in Hz) of the LowBeep.  
@@ -238,9 +239,15 @@ Default is `100`.
 
 # Changelog
 
-### Latest: v1.4 (2021-12-29)
+### Latest: v1.5 (Date TBD)
+- Nothing yet.
+
+### v1.4 (2021-12-29)
 - Renamed the `Kill` hotkey to `ReloadKey`, and added a new `Kill` hotkey for actually exiting the script. See <a href='#reloadkey'>ReloadKey</a> and <a href='#kill'>Kill</a>.
-- Added configurable delay between loading mats and clicking the `CONFIRM` button, to address an issue where the clicking the `CONFIRM` button too quickly causes the game itself to get confused. See <a href='#delayload'>DelayLoad</a>. Original `DelayLoad` variable renamed to `DelayLoadItem`.
+- Added configurable delay between loading/unloading mats and clicking the `CONFIRM` button, to address an issue where the clicking the `CONFIRM` button too quickly causes the game itself to get confused. See <a href='#delayload'>DelayLoadUnload</a>.
+  - Original `DelayLoad` variable renamed to `DelayLoadItems`.
+  - Original `DelayDeliver` variable renamed to `DelayUnloadItems`.
+- Added initial HighBeep when script is loaded to signal when initial processing is finished, and the script is awaiting hotkeys to be pressed.
 
 ### v1.3 (2021-12-13)
 - Changed the `Kill` hotkey so that it kills the current instance of the script and reloads it, instead of just killing it entirely. Script can still be exited normally by right-clicking the system tray icon and selecting `Exit`.
