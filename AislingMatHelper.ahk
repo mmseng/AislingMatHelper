@@ -331,12 +331,6 @@ JumpReload:
 
 	; Make sure all virtually-pressed keys are released
 	GoSub Release
-					
-					 
-					  
- 
-				  
-		 
 	
 	; Reload the script instead, so we don't have to manually relaunch it
 	; https://www.autohotkey.com/boards/viewtopic.php?f=76&t=97746&p=434107#p434107

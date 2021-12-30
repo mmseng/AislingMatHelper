@@ -140,6 +140,8 @@ SoundBeep, %HighBeep%, %BeepLength%
 ; End script until hotkey is pressed
 Return
 
+
+
 ; ===========================================================
 ; Subroutines and functions
 ; ===========================================================
