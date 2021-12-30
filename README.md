@@ -241,7 +241,7 @@ Default is `100`.
 
 ### Latest: v1.4 (2021-12-29)
 - Renamed the `Kill` hotkey to `ReloadKey`, and added a new `Kill` hotkey for actually exiting the script. See <a href='#reloadkey'>ReloadKey</a> and <a href='#kill'>Kill</a>.
-- Added configurable delay between loading/unloading mats and clicking the `CONFIRM` button, to address an issue where the clicking the `CONFIRM` button too quickly causes the game itself to get confused. See <a href='#delayload'>DelayLoadUnload</a>.
+- Added configurable delay between loading/unloading mats and clicking the `CONFIRM` button, to address an issue where the clicking the `CONFIRM` button too quickly causes the game itself to get confused. See <a href='#delayloadunload'>DelayLoadUnload</a>.
   - Original `DelayLoad` variable renamed to `DelayLoadItems`.
   - Original `DelayDeliver` variable renamed to `DelayUnloadItems`.
 - Added initial HighBeep when script is loaded to signal when initial processing is finished, and the script is awaiting hotkeys to be pressed.
