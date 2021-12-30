@@ -6,7 +6,7 @@ Specifically, this was designed for players pledged to the Aisling Duval power, 
 This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CMDR Oraki/Sulandir. This updated script features complete modularization of all hard-coded aspects into easy-to-use variables, full documentation (below), and fully commented code.  
 
 <p align='center'>
-	<img src='aisling.png' /><br />
+	<img src='img/aisling.png' /><br />
 	o7<br />
 	== CMDR Roachy1
 </p>
