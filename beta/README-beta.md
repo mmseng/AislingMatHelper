@@ -266,5 +266,5 @@ Default is `100`.
 - If you discover an issue, have suggestions or questions, please feel free to open an <a href='https://github.com/mmseng/AislingMatHelper/issues'>Issue</a>.
 - [Original script](https://pastebin.com/9MFvm8ek) by CMDR Oraki/Sulandir
 - Overhauled for ease of use and flexibility by CMDR Roachy1
-- You can ignore `AislingMatHelper-beta.ahk`. I use this to test changes before making them live in `AislingMatHelper.ahk`.
+- You can ignore the files in the beta subdirectory. I use this to test changes before making them live.
 - For the Princess!
