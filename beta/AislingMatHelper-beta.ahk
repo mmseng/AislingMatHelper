@@ -135,7 +135,9 @@ Hotkey, %ReloadKey%, JumpReload
 Hotkey, %Kill%, JumpKill
 
 ; Beep to signal that initial processing is done and the script is awaiting hotkeys to be pressed
-SoundBeep, %HighBeep%, %BeepLength%
+if(EnableBeeps) {
+	SoundBeep, %HighBeep%, %BeepLength%
+}
 
 ; End script until hotkey is pressed
 Return
