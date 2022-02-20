@@ -105,9 +105,9 @@ switch Rating {
 
 ; Increase delay if the script confirms before loading all mats
 ; Decrease delay if the script waits for a while before confirming after loading all mats
-; ~60ms per ton is optimal in my testing
+; ~61ms per ton is optimal in my testing
 ; ~70ms per ton to be safe
-DelayLoadItems := Quota * 60
+DelayLoadItems := Quota * 61
 
 ; Delay when unloading
 ; Defines how long to hold "right" when unloading mats
