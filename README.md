@@ -182,11 +182,11 @@ Testing shows that an acceptable value is something around 60-70ms per ton loade
 Caculated based on the formula: `Quota * DelayLoadItemsMultiplier`.  
 The full expanded formula is: `Quota * (DelayLoadItemsMultiplierBase + ((5 - Rating) * DelayLoadItemsMultiplierAdjustmentMultiplier))`.  
 With default values, the resulting delay for each rating would be as follows:  
-  - 5: `60`
-  - 4: `63`
-  - 3: `66`
-  - 2: `69`
-  - 1: `72`
+  - 5: `Quota * 60`
+  - 4: `Quota * 63`
+  - 3: `Quota * 66`
+  - 2: `Quota * 69`
+  - 1: `Quota * 72`
 
 ### DelayLoadItemsMultiplier
 The multiplier used to determine the value of `DelayLoadItems`, optimized for the value of `Rating`.  
