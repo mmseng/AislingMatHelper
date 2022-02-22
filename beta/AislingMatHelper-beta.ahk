@@ -108,15 +108,17 @@ switch Rating {
 ; ~60ms per ton is optimal for rating 5
 ; ~65ms per ton is closer to optimal for rating 3
 ; ~70ms per ton to be safe
-DelayLoadItemsBase := Quota * 60
+DelayLoadItemsMultiplierBase = 60
 
 ; A longer delay is necessary for lower ratings, since the "right" button is being held down for less time
-; Testing indicates that 60ms is optimal for rating 5, while 70 is safe for all ratings
+; Testing indicates that 60ms per ton is optimal for rating 5, while 70 is safe for all ratings
 ; So we'll use a formula to automatically determine how much more time should be used as the rating decreases from 60ms at rating 5
 ; If the multiplier is 3, then rating 5 would be 60, rating 4 would be 63, rating 3 would be 66, etc.
-DelayLoadItemsAdjustmentMultiplier = 3
-DelayLoadItemsAdjustment := (5 - Rating) * DelayLoadItemsAdjustmentMultiplier
-DelayLoadItems := DelayLoadItemsBase + DelayLoadItemsAdjustment
+DelayLoadItemsMultiplierAdjustmentMultiplier = 3
+
+DelayLoadItemsMultiplierAdjustment := (5 - Rating) * DelayLoadItemsMultiplierAdjustmentMultiplier
+DelayLoadItemsMultiplier := DelayLoadItemsMultiplierBase + DelayLoadItemsMultiplierAdjustment
+DelayLoadItems := Quota * DelayLoadItemsMultiplier
 
 ; Delay when unloading
 ; Defines how long to hold "right" when unloading mats

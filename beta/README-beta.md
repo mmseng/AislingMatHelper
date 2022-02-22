@@ -179,8 +179,8 @@ This delay (and the button click) happen regardless of whether you actually need
 ### DelayLoadItems
 The delay after pressing the right arrow key before releasing it, when loading materials.  
 Testing shows that an acceptable value is something around 60-70ms per ton loaded.  
-Caculated based on the formula `DelayLoadItemsBase + DelayLoadItemsAdjustment`.  
-The full formula would be `DelayLoadItems = DelayLoadItemsBase + ((5 - Rating) * DelayLoadItemsAdjustmentMultiplier)`.  
+Caculated based on the formula: `Quota * DelayLoadItemsMultiplier`.  
+The full expanded formula is: `Quota * (DelayLoadItemsMultiplierBase + ((5 - Rating) * DelayLoadItemsMultiplierAdjustmentMultiplier))`.  
 With default values, the resulting delay for each rating would be as follows:  
   - 5: `60`
   - 4: `63`
@@ -188,15 +188,21 @@ With default values, the resulting delay for each rating would be as follows:
   - 2: `69`
   - 1: `72`
 
-### DelayLoadItemsBase
-The base delay for `DelayLoadItems`.  
+### DelayLoadItemsMultiplier
+The multiplier used to determine the value of `DelayLoadItems`, optimized for the value of `Rating`.  
+Calculated based on the formula: `DelayLoadItemsMultiplierBase + DelayLoadItemsMultiplierAdjustment`.  
+The full expanded formula is: `DelayLoadItemsMultiplierBase + ((5 - Rating) * DelayLoadItemsMultiplierAdjustmentMultiplier))`.  
+
+### DelayLoadItemsMultiplierBase
+The base value for `DelayLoadItemsMultiplier`, before optimizing for the value of `Rating`.  
 The default base value is `60`, which is optimal for rating 5.  
+In order to tweak `DelayLoadItems`, it's recommended to change `DelayLoadItemsMultiplierAdjustmentMultiplier`, instead of `DelayLoadItemsMultiplierBase`.  
 
-### DelayLoadItemsAdjustment
-The amount of time to add to `DelayLoadItemsBase`.  
-Calculated based on the formula `DelayLoadItemsAdjustment = (5 - Rating) * DelayLoadItemsAdjustmentMultiplier`.  
+### DelayLoadItemsMultiplierAdjustment
+The amount of time to add to `DelayLoadItemsMultiplierBase`, to optimize for the value of `Rating`.  
+Calculated based on the formula `(5 - Rating) * DelayLoadItemsMultiplierAdjustmentMultiplier`.  
 
-### DelayLoadItemsAdjustmentMultiplier
+### DelayLoadItemsMultiplierAdjustmentMultiplier
 How much extra time to add for each rating level below 5 the given value of `Rating` is.  
 Default is `3`.  
 If you find that not all items are being loaded before the `CONFIRM` button is clicked, try increasing this value in increments of `1`.  
@@ -261,9 +267,12 @@ Default is `100`.
 
 # Changelog
 
-### Latest: v1.5 (2022-02-21)
-- Add logic to tweak the `DelayLoadItems` value based on the defined rating. This should optimize this delay, while still preventing the `CONFIRM` button from being pressed too quickly at lower ratings.
-  - `DelayLoadItems` is now calculated based on values of `DelayLoadItemsBase`, `DelayLoadItemsAdjustment`, and `DelayLoadItemsAdjustmentMultiplier`. See variable documentation above.
+### Latest: v1.6 (TBD)
+- Nothing yet.
+
+### v1.5 (2022-02-21)
+- Add logic to tweak the `DelayLoadItems` value based on the given value of `Rating`. This should optimize this delay, while still preventing the `CONFIRM` button from being pressed too quickly at lower ratings.
+  - `DelayLoadItems` is now calculated based on values of `DelayLoadItemsMultiplier`, `DelayLoadItemsMultiplierBase`, `DelayLoadItemsMultiplierAdjustment`, and `DelayLoadItemsMultiplierAdjustmentMultiplier`. See variable documentation above.
 
 ### v1.4 (2021-12-29)
 - Renamed the `Kill` hotkey to `ReloadKey`, and added a new `Kill` hotkey for actually exiting the script. See <a href='#reloadkey'>ReloadKey</a> and <a href='#kill'>Kill</a>.

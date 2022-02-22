@@ -3,7 +3,7 @@ This is an Autohotkey (AHK) script which helps to automate tedious keystrokes in
 
 Specifically, this was designed for players pledged to the Aisling Duval power, to automate the keystrokes required to purchase, load, and deliver powerplay materials.  
 
-This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CMDR Oraki/Sulandir. This updated script features full fortification, preparation, and expansion support, Horizons and Odyssey support, complete modularization of all hard-coded aspects into easy-to-use variables, full documentation (below), and fully commented code.  
+This is an overhaul of an [original script](https://pastebin.com/9MFvm8ek) by CMDR Oraki/Sulandir. This updated script features complete modularization of all hard-coded aspects into easy-to-use variables, full documentation (below), and fully commented code.  
 
 <p align='center'>
 	<img src='img/aisling.png' /><br />
@@ -178,14 +178,41 @@ This delay (and the button click) happen regardless of whether you actually need
 
 ### DelayLoadItems
 The delay after pressing the right arrow key before releasing it, when loading materials.  
-The delay depends on the quota size, which depends on your `Rating`.  
 Testing shows that an acceptable value is something around 60-70ms per ton loaded.  
-Default is `60`.  
+Caculated based on the formula: `Quota * DelayLoadItemsMultiplier`.  
+The full expanded formula is: `Quota * (DelayLoadItemsMultiplierBase + ((5 - Rating) * DelayLoadItemsMultiplierAdjustmentMultiplier))`.  
+With default values, the resulting delay for each rating would be as follows:  
+  - 5: `60`
+  - 4: `63`
+  - 3: `66`
+  - 2: `69`
+  - 1: `72`
+
+### DelayLoadItemsMultiplier
+The multiplier used to determine the value of `DelayLoadItems`, optimized for the value of `Rating`.  
+Calculated based on the formula: `DelayLoadItemsMultiplierBase + DelayLoadItemsMultiplierAdjustment`.  
+The full expanded formula is: `DelayLoadItemsMultiplierBase + ((5 - Rating) * DelayLoadItemsMultiplierAdjustmentMultiplier))`.  
+
+### DelayLoadItemsMultiplierBase
+The base value for `DelayLoadItemsMultiplier`, before optimizing for the value of `Rating`.  
+The default base value is `60`, which is optimal for rating 5.  
+In order to tweak `DelayLoadItems`, it's recommended to change `DelayLoadItemsMultiplierAdjustmentMultiplier`, instead of `DelayLoadItemsMultiplierBase`.  
+
+### DelayLoadItemsMultiplierAdjustment
+The amount of time to add to `DelayLoadItemsMultiplierBase`, to optimize for the value of `Rating`.  
+Calculated based on the formula `(5 - Rating) * DelayLoadItemsMultiplierAdjustmentMultiplier`.  
+
+### DelayLoadItemsMultiplierAdjustmentMultiplier
+How much extra time to add for each rating level below 5 the given value of `Rating` is.  
+Default is `3`.  
+If you find that not all items are being loaded before the `CONFIRM` button is clicked, try increasing this value in increments of `1`.  
+If the `CONFIRM` button is clicked too soon, while still loading items, this can cause the "Power Contact not available" error. To recover from this you must quit to menu.  
 
 ### DelayLoadUnload
 The delay after loading/unloading all items before clicking the `CONFIRM` button.  
-Because clicking `CONFIRM` too quickly after loading can sometimes cause the "Power Contact not available" error.  
 Default is `200`.  
+If you find that all items are being loaded, but the `CONFIRM` button is being clicked too soon after loading items, increase this value in increments of ~`50`.  
+If the `CONFIRM` button is clicked too quickly after loading items, this can cause the "Power Contact not available" error. To recover from this you must quit to menu.  
 
 ### DelayConfirm
 The delay after clicking the `CONFIRM` button after loading materials.  
@@ -240,7 +267,11 @@ Default is `100`.
 
 # Changelog
 
-### Latest: v1.4 (2021-12-29)
+### Latest: v1.5 (2022-02-21)
+- Add logic to tweak the `DelayLoadItems` value based on the given value of `Rating`. This should optimize this delay, while still preventing the `CONFIRM` button from being pressed too quickly at lower ratings.
+  - `DelayLoadItems` is now calculated based on values of `DelayLoadItemsMultiplier`, `DelayLoadItemsMultiplierBase`, `DelayLoadItemsMultiplierAdjustment`, and `DelayLoadItemsMultiplierAdjustmentMultiplier`. See variable documentation above.
+
+### v1.4 (2021-12-29)
 - Renamed the `Kill` hotkey to `ReloadKey`, and added a new `Kill` hotkey for actually exiting the script. See <a href='#reloadkey'>ReloadKey</a> and <a href='#kill'>Kill</a>.
 - Added configurable delay between loading/unloading mats and clicking the `CONFIRM` button, to address an issue where the clicking the `CONFIRM` button too quickly causes the game itself to get confused. See <a href='#delayloadunload'>DelayLoadUnload</a>.
   - Original `DelayLoad` variable renamed to `DelayLoadItems`.
