@@ -196,7 +196,7 @@ The full expanded formula is: `DelayLoadItemsMultiplierBase + ((5 - Rating) * De
 ### DelayLoadItemsMultiplierBase
 The base value for `DelayLoadItemsMultiplier`, before optimizing for the value of `Rating`.  
 The default base value is `60`, which is optimal for rating 5.  
-In order to tweak `DelayLoadItems`, it's recommended to change `DelayLoadItemsMultiplierAdjustmentMultiplier`, instead of `DelayLoadItemsMultiplierBase`.  
+In order to tweak `DelayLoadItems`, it's recommended to change `DelayLoadItemsMultiplierAdjustmentMultiplier`, instead of `DelayLoadItemsMultiplierBase`, unless you're finding that `60` is too low even for rating 5.  
 
 ### DelayLoadItemsMultiplierAdjustment
 The amount of time to add to `DelayLoadItemsMultiplierBase`, to optimize for the value of `Rating`.  
