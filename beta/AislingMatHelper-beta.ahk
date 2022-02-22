@@ -17,7 +17,7 @@ SetKeyDelay, 50, 50
 ; Information
 ; ===========================================================
 
-; Script version: 1.5 (Date TBD)
+; Script version: 1.5 (2022-02-21)
 ; See full script documentation at: https://github.com/mmseng/AislingMatHelper
 
 ; Script originally by CMDR Suladir.
@@ -105,9 +105,18 @@ switch Rating {
 
 ; Increase delay if the script confirms before loading all mats
 ; Decrease delay if the script waits for a while before confirming after loading all mats
-; ~60ms per ton is optimal in my testing
+; ~60ms per ton is optimal for rating 5
+; ~65ms per ton is closer to optimal for rating 3
 ; ~70ms per ton to be safe
-DelayLoadItems := Quota * 60
+DelayLoadItemsBase := Quota * 60
+
+; A longer delay is necessary for lower ratings, since the "right" button is being held down for less time
+; Testing indicates that 60ms is optimal for rating 5, while 70 is safe for all ratings
+; So we'll use a formula to automatically determine how much more time should be used as the rating decreases from 60ms at rating 5
+; If the multiplier is 3, then rating 5 would be 60, rating 4 would be 63, rating 3 would be 66, etc.
+DelayLoadItemsAdjustmentMultiplier = 3
+DelayLoadItemsAdjustment := (5 - Rating) * DelayLoadItemsAdjustmentMultiplier
+DelayLoadItems := DelayLoadItemsBase + DelayLoadItemsAdjustment
 
 ; Delay when unloading
 ; Defines how long to hold "right" when unloading mats
