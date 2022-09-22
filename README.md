@@ -206,7 +206,7 @@ Calculated based on the formula `(5 - Rating) * DelayLoadItemsMultiplierAdjustme
 How much extra time to add for each rating level below 5 the given value of `Rating` is.  
 Default is `3`.  
 If you find that not all items are being loaded before the `CONFIRM` button is clicked, try increasing this value in increments of `1`.  
-If the `CONFIRM` button is clicked too soon, while still loading items, this can cause the "Power Contact not available" error. To recover from this you must quit to menu.  
+If the `CONFIRM` button is clicked too soon, while still loading items, this can cause the "Power Contact not available" error. To recover from this you must quit to the main menu.  
 
 ### DelayLoadUnload
 The delay after loading/unloading all items before clicking the `CONFIRM` button.  
