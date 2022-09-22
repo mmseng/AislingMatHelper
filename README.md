@@ -212,7 +212,7 @@ If the `CONFIRM` button is clicked too soon, while still loading items, this can
 The delay after loading/unloading all items before clicking the `CONFIRM` button.  
 Default is `200`.  
 If you find that all items are being loaded, but the `CONFIRM` button is being clicked too soon after loading items, increase this value in increments of ~`50`.  
-If the `CONFIRM` button is clicked too quickly after loading items, this can cause the "Power Contact not available" error. To recover from this you must quit to menu.  
+If the `CONFIRM` button is clicked too quickly after loading items, this can cause the "Power Contact not available" error. To recover from this you must quit to the main menu.  
 
 ### DelayConfirm
 The delay after clicking the `CONFIRM` button after loading materials.  
