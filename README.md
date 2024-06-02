@@ -304,3 +304,4 @@ Default is `100`.
 - Overhauled for ease of use and flexibility by CMDR Roachy1
 - You can ignore the files in the beta subdirectory. I use this to test changes before making them live.
 - For the Princess!
+- By mmseng. See my other projects here: https://github.com/mmseng/code-compendium-personal.
